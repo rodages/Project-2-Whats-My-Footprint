@@ -1,6 +1,6 @@
 function App() {
   return <h1>
-    Konnichiwa Worlds
+    Sample Start Page
   </h1>
 }
 
