@@ -44,26 +44,23 @@ function CountriesDropdown({filterSearchResults}) {
   console.log(dropdownList)
 
   return <>
-    <form>
     <SearchField setSearchTerm={setSearchTerm}/>
     {dropdownList
     .filter(item=>filterSearchResults(item.countryName,searchTerm)) //passed from App.js
     .map(({countryCode,countryName},i)=>{
       return (
             <div key={i} className="column">
-                <label>{countryName}</label>
+                <label for={countryCode}>{countryName}</label>
                 <input 
                 type="radio" 
                 defaultChecked={countryCode === "GBR"?'defaultChecked':''} 
                 name="country-choice" 
+                id={countryCode}
                 // tag={countryName} probably not needed
                 value={countryCode}/>
             </div>
             );
     })}
-    </form>
-    
-
   </>
 }
 

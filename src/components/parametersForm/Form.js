@@ -1,17 +1,19 @@
 import CountriesDropdown from "./CountriesDropdown";
+import StagesDropdown from "./StagesDropdown";
 import {useState} from 'react'
 
 function Form({filterSearchResults}){
     const [selectedCountry,setSelectedCountry] = useState("GBR")
     const [selectedStages,setSelectedStages] = useState("Farm");
-    return <h1>hello</h1>
-    return <Form>
-        <CountriesDropdown
+    return <form>
+        <CountriesDropdown 
+            class="rows"
             filterSearchResults={filterSearchResults}
             
             />
+        <StagesDropdown />
 
-    </Form>
+    </form>
 }
 
 export default Form

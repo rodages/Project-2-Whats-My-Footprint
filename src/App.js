@@ -12,7 +12,7 @@ function App() {
     if(!searchTerm) return arrItem
     return searchTerm&&arrItem.includes(searchTerm)
   }
-  return <h1>Hi</h1>
+  // return <h1>Hi</h1>
 
   return <Form  
     filterSearchResults={filterSearchResults}
