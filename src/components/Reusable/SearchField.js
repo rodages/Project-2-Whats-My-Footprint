@@ -3,7 +3,7 @@ import {useState} from 'react';
 function searchField({setSearchTerm}){
     
     return<>
-        <input type="text" onChange={(e)=>setSearchTerm(e.target.value)} placeholder="type in country name"/>
+        <input className="input is-primary is-small" type="text" onChange={(e)=>setSearchTerm(e.target.value)} placeholder="type in country name"/>
     </>
 }
 
