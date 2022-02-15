@@ -1,5 +1,4 @@
 import {useContext} from 'react'
-const value = useContext(Context);
 
 
 function SearchHistory(){
