@@ -7,7 +7,6 @@ function Form({filterSearchResults}){
     const [selectedStages,setSelectedStages] = useState("Farm");
     return <form>
         <CountriesDropdown 
-            class="rows"
             filterSearchResults={filterSearchResults}
             
             />

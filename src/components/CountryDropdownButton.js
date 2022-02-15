@@ -9,7 +9,6 @@ import SearchField from './Reusable/SearchField'
 
 function CountryDropdown(){
     const [dropdownList,setDropdownList] = useState(undefined);
-    const [searchTerm,setSearchTerm] = useState("")
     
     useEffect(()=>{
         async function getCountriesNames(){
@@ -42,12 +41,10 @@ function CountryDropdown(){
         )
     }
     return (<>
-        <SearchField setSearchTerm={setSearchTerm} placeholder={"inser searchterm"}/>
         <div className="select is-primary">
             <select>
-                <option value="unselected">Select Market &#127757;</option>
+                <option value="unselected" hidden>Select Market &#127757;</option>
                 {dropdownList
-                .filter(({countryName})=>filterFunction(countryName,searchTerm))
                 .map(({countryName,countryCode},i) => {
                     return <option value={countryCode} key={i}>{countryName}
                     </option>})}

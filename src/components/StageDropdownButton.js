@@ -7,7 +7,8 @@ function StageDropdown(){
     return (
         <div className="select is-primary">
             <select>
-                <option defaultValue="" hidden>Select Stage &#127981;</option>
+            {/* default option is set to Farm */}
+                <option defaultValue="Farm" hidden>Select Stage &#127981;</option>
                 <option value="DistributionCenter">At Distrubtion Center</option>
                 <option value="Factory">At Factory</option>
                 <option value="Farm">At Farm</option>
