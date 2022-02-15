@@ -42,7 +42,7 @@ function CountryDropdown({setMarketCode}){
     }
     return (<>
         <div className="select is-primary">
-            <select>
+            <select onChange={(e)=>{setMarketCode(e.target.value)}}>
                 <option value="unselected" hidden>Select Market &#127757;</option>
                 {dropdownList
                 .map(({countryName,countryCode},i) => {
