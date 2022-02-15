@@ -1,24 +1,26 @@
-// const iso = require('iso-3166-1');
-import iso from 'iso-3166-1'
-import react,{useState,useEffect} from 'react'
-import Form from './components/parametersForm/Form'
+import 'bulma/css/bulma.min.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+
+import Layout from "./components/Layout"
+import MainPage from "./components/MainPage"
+import {useState,useEffect} from 'react'
+// import About from "./components/About"
+
 
 function App() {
-  
-  function filterSearchResults(arrItemArg,searchTermArg){
-    const searchTerm = searchTermArg.trim().toLowerCase()
-    const arrItem = arrItemArg.toLowerCase()
-    console.log(searchTerm,arrItem)
-    if(!searchTerm) return arrItem
-    return searchTerm&&arrItem.includes(searchTerm)
-  }
-  // return <h1>Hi</h1>
 
-  return <Form  
-    filterSearchResults={filterSearchResults}
-
-
-  />
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage/>} />
+          {/* <Route path="/countries" element={<CountriesList />} /> */}
+          {/* <Route path="/about" element={<About />} /> */}
+          {/* <Route path="/country/:countryName" element={<ShowCountry />} /> */}
+        </Route>
+      </Routes>
+    </Router>
+  )
 }
 
 export default App

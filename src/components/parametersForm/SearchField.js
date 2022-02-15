@@ -1,10 +1,10 @@
 import {useState} from 'react';
 
-function searchField({setSearchTerm}){
+function SearchField({setSearchTerm,placeholder}){
     
     return<>
-        <input type="text" onChange={(e)=>setSearchTerm(e.target.value)} placeholder="type in country name"/>
+        <input type="text" onChange={(e)=>setSearchTerm(e.target.value)} placeholder={placeholder}/>
     </>
 }
 
-export default searchField
+export default SearchField
