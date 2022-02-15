@@ -3,7 +3,7 @@ import filterFunction from './Reusable/filterFunction'
 
 import SearchField from './Reusable/SearchField'
 
-function CountryDataRequest() {
+function FarmDataRequest() {
 
     const [farmFoodDict,setFarmFoodDict] = useState(undefined);
 
@@ -43,4 +43,4 @@ function CountryDataRequest() {
 
 
 
-export default CountryDataRequest
+export default FarmDataRequest
