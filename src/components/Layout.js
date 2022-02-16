@@ -15,9 +15,9 @@ function Layout() {
               <Link to={"/history"} className="navbar-item">
                 History
               </Link>
-              {/* <Link to="/about" className="navbar-item">
-                About
-              </Link> */}
+              <Link to={"/searchresults"} className="navbar-item">
+                Last Search
+              </Link>
               {/* <Link to="/countries" className="navbar-item">
                 All Countries
               </Link> */}

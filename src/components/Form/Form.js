@@ -1,19 +1,24 @@
 import {useState,useEffect} from 'react'
-import {Link} from 'react-router-dom';
+import { useNavigate } from "react-router-dom"
 
 import CountryDropdown from '../CountryDropdownButton'
 import StageDropdown from '../StageDropdownButton'
+import SearchResults from '../SearchResults';
 
 function Form(){
     const [marketCode,setMarketCode]=useState(undefined)
     const [stageOption,setStageOption]=useState(undefined);
-
+    const navigate = useNavigate()
 
     function handleSubmitForm(e){
         e.preventDefault()
-        if(displayError())return
-            <Link to={"insertlink"}/>
+        if(displayError()){return}
+        // console.log(`this runs`);
+        // console.log(SearchResults);
+        // console.log(navigate);
+        navigate(`/search/market=${marketCode}&stage=${stageOption}`, {state:{market:marketCode,stage:stageOption}});
     }
+
     function displayError(){
         const text = "Please select"
         if(!marketCode&&!stageOption){return <p>{text} Market and Stage</p>} 

@@ -28,23 +28,7 @@ function MainPage({dropdownList}){
 
                     <div className="card-content has-background-primary-light">
                     <Form dropdownList={dropdownList} className="card-content has-background-primary-light" />
-                        {/* <div className="content">
-
-                            <p>Select your market and Stage</p>
-                            <div className="columns has-text-primary-dark">
-            
-                                <div className="column"><CountryDropdown dropdownList={dropdownList}/></div>
-                                <div className="column"><StageDropdown/></div>
-
-                            </div>
-
-                            <div className="columns is-centered">
-                                <div className="control">
-                                    <button className="button is-primary is-small">Check CO2</button>
-                                </div>
-                            </div>
-
-                        </div> */}
+                    
                     </div>
                 </div>
 

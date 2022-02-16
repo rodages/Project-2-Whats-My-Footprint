@@ -1,7 +1,8 @@
 import {useContext} from 'react'
 
 
-function SearchHistory(){
+
+function SearchHistory(props){
     return <h1>Hi</h1>
 }
 
