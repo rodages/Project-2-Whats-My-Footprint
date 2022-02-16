@@ -57,6 +57,7 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
                         <li>transport : {item.footprintBreakdown.transport}</li>
                         <li> undisclosed : {item.footprintBreakdown.undisclosed}</li>
                     </ul>
+                    <p>product Info: {item.productInfo}</p>
                     <hr/>
 
 

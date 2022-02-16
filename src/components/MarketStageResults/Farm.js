@@ -34,6 +34,7 @@ function Farm({market}){
                         "OrganicSoils": item._source.co2OrganicSoils,
                         "FertilizerProduction": item._source.co2FertilizerProduction,
                     },
+                    productInfo:`https://apps.carboncloud.com/climatehub/agricultural-reports/benchmarks/${item._id}`
                 }
             })
             arr.sort((current,next)=>current.name.localeCompare(next.name))
@@ -57,6 +58,7 @@ function Farm({market}){
                 <h1>product name: {item.name}</h1>
                 <ul>
                     <li>id: {item.id}</li>
+                    <li>productInfo: {item.productInfo}</li>
                     <li>totalClimateFootprint: {item.totalClimateFootprint}</li>
                     <li><ul>Footprint breakdown:
                         <li>totalCH4Footprint: {item.totalCH4Footprint}</li>
