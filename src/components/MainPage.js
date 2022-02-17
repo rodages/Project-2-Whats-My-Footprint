@@ -3,6 +3,8 @@ import CountryDropdown from "./CountryDropdownButton"
 import StageDropdown from "./StageDropdownButton"
 
 import Form from './Form/Form'
+import DisplayPie from "./pieChart"
+import MyResponsiveBar from "./barChar"
 
 function MainPage({dropdownList}){
     return (
@@ -28,12 +30,14 @@ function MainPage({dropdownList}){
 
                     <div className="card-content has-background-primary-light">
                     <Form dropdownList={dropdownList} className="card-content has-background-primary-light" />
-                    
+
                     </div>
                 </div>
 
             </div>
         </div>
+        <DisplayPie/>
+        <MyResponsiveBar/>
 
     </>
     )
