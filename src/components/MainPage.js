@@ -3,8 +3,8 @@ import CountryDropdown from "./CountryDropdownButton"
 import StageDropdown from "./StageDropdownButton"
 
 import Form from './Form/Form'
-import DisplayPie from "./pieChart"
-import MyResponsiveBar from "./barChar"
+import DisplayPie from "./Charts/pieChart"
+import MyResponsiveBar from "./Charts/barChar"
 
 function MainPage({dropdownList}){
     return (
