@@ -19,8 +19,10 @@ function Farm({market}){
                 console.log(item)
                 return {
                     "id":item._id,
-                    "name":item._source.productName,
-                    "totalClimateFootprint":item._source.totalClimateFootprint,
+                    "productName":item._source.productName,
+                    "market":item._source.market,
+                    "totalFootprint":item._source.totalClimateFootprint,
+                    
 
                     "totalCH4Footprint":item._source.totalCh4ClimateFootprint,
                     "totalN2oFootprint":item._source.totalN2oClimateFootprint,

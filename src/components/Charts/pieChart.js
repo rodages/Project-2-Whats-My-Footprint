@@ -1,4 +1,4 @@
-import { ResponsivePie } from '@nivo/pie'
+// import { ResponsivePie } from '@nivo/pie'
 
 
   const data = [
@@ -82,4 +82,4 @@ const DisplayPie = () => (
     </div>
 )
 
-export default DisplayPie
+// export default DisplayPie
