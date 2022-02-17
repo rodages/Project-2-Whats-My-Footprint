@@ -20,6 +20,7 @@ function StoreDataRequest() {
             const hits =data.hits.hits
             const foodDict = hits.map(item=>{
                 return {
+                    "Id":item._id,
                     "Name":item._source.productName,
                     "Agriculture":item._source.footprintBreakdown.agriculture,
                     "Fossil Fuel": item._source.footprintBreakdown.fossilFuel,
