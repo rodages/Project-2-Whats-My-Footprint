@@ -5,29 +5,42 @@ import Layout from "./components/Layout"
 import MainPage from "./components/MainPage"
 import SearchHistory from './components/SearchHistory';
 import SearchResults from './components/SearchResults';
+import Basket from './components/Basket';
 import {useState,useEffect,createContext} from 'react'
 // import About from "./components/About"
-
+export const HistoryContext = createContext()
+export const BasketContext = createContext()
 
 function App() {
-  const [searchHistoryList,setSearchHistoryList]=useState(["one","two","three"])
-  const Context = createContext("Default Value")
-  const searchResults = {market:"GBR",stage:"Farm"}
+  const [searchHistoryList,setSearchHistoryList]=useState(1)
+  const [interestedInArr,setInterestedInArr] = useState([])
+  const [wantToAvoidArr,setWantToAvoidArr] = useState(["avoid"])
+  
 
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Layout searchHistoryList={searchHistoryList} />}>
-          <Route index element={<MainPage/>} />
+
+        <Route index element={<MainPage/>} />
+
+        <Route path="/basket" element={
+          <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
+            <Basket />
+          </BasketContext.Provider>
+        } />
+
+        <Route path={`/search/market=:market&stage=:stage`} element={
+          <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
+            <SearchResults/>
+          </BasketContext.Provider>
+        } />
           <Route path="/history" element={
-            <Context.Provider value={"hello"}>
-              <SearchHistory/>
-            </Context.Provider>
-          } />
-          <Route path={`/search/market=:market&stage=:stage`} element={<SearchResults/>} />
-          {/* <Route path="/market" element={<About />} /> */}
-          {/* <Route path="/country/:countryName" element={<ShowCountry />} /> */}
+            <HistoryContext.Provider value={[searchHistoryList,setSearchHistoryList]}>
+              <SearchHistory />
+            </HistoryContext.Provider>
+          }/>
         </Route>
       </Routes>
     </Router>

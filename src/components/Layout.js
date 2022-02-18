@@ -18,9 +18,9 @@ function Layout() {
               <Link to={"/searchresults"} className="navbar-item">
                 Last Search
               </Link>
-              {/* <Link to="/countries" className="navbar-item">
-                All Countries
-              </Link> */}
+              <Link to="/basket" className="navbar-item">
+                Basket
+              </Link>
             </div>
           </div>
         </nav>

@@ -1,6 +1,6 @@
 import {useState,useEffect,useContext} from 'react'
 import StagesItem from './StagesItem';
-import TopList from './TopList';
+import TopLists from './TopLists';
 
 function DisCenterFactoryStoreUnspecified({market,stage}){
     const [data,setData] = useState(undefined)
@@ -14,15 +14,13 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
                 },
                 })
             const data = await response.json();
-            console.log(data)
             const arr = data.hits.hits.map(item=>{
-                console.log(item)
                 return {
                     "id":item._id,
                     "productName":item._source.productName,
                     "market":item._source.market,
-                    "footprintBreakdown":item._source.footprintBreakdown,
                     "totalFootprint":item._source.totalFootprint,
+                    "footprintBreakdown":item._source.footprintBreakdown,
                     "imageUrl":item._source.imageUrl,
                     "productInfo":item._source.reportUrl
                 }
@@ -43,7 +41,7 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
     console.log(data)
     return(
         <>
-        <TopList data={data} sortingDescription={"Not Sorted"} />
+            <TopLists data={data} />
             {data.map((item,i)=>{
                 return <StagesItem key={i} item={item} />
             })}

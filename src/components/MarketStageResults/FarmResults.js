@@ -1,5 +1,6 @@
 import {useState,useEffect,useContext} from 'react'
 import FarmItem from './FarmItem'
+import TopLists from './TopLists'
 
 function Farm({market}){
     const [data,setData] = useState(undefined)
@@ -16,11 +17,10 @@ function Farm({market}){
             const data = await response.json()
             const hits =data.hits.hits
             const arr = hits.map(item=>{
-                console.log(item)
                 return {
                     "id":item._id,
                     "productName":item._source.productName,
-                    "market":item._source.market,
+                    "market":item._source.locationCode,
                     "totalFootprint":item._source.totalClimateFootprint,
                     
 
@@ -40,7 +40,7 @@ function Farm({market}){
                     productInfo:`https://apps.carboncloud.com/climatehub/agricultural-reports/benchmarks/${item._id}`
                 }
             })
-            arr.sort((current,next)=>current.name.localeCompare(next.name))
+            arr.sort((current,next)=>current.productName.localeCompare(next.productName))
             setData(arr)
         }
         getCountryFarmData()
@@ -56,6 +56,7 @@ function Farm({market}){
 
     console.log(data)
     return <>
+        <TopLists data={data} />
         {data.map((item,i)=>{
             return <FarmItem key={i} item={item} />
         })}
