@@ -1,12 +1,14 @@
 import DisplayItemCard from '../DisplayItemCard'
 import { BasketContext } from '../../App'
 import {useState,useContext,useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import iso from 'iso-3166-1'
 import { hasFlag, countries } from 'country-flag-icons'
 
 function ListItem({item,order, iso2Code}){
     const[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr] = useContext(BasketContext)
+    const navigate = useNavigate()
     // console.log(interestedInArr)
     // console.log(wantToAvoidArr)
 
@@ -32,7 +34,8 @@ function ListItem({item,order, iso2Code}){
         <th >{order}</th>
         <td className="button is-normall is-link is-light"
             onClick={()=>
-                <DisplayItemCard />
+                navigate(`/displayitem/${item.id}`, {state:{item}})
+                
             }
         
         >{item.productName}</td>

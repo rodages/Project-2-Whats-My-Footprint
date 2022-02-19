@@ -1,6 +1,7 @@
 import { ResponsivePie } from '@nivo/pie'
 
 
+
   const data = [
     {
       "id": "Agriculture",
@@ -41,7 +42,48 @@ import { ResponsivePie } from '@nivo/pie'
   ]
 
 
-const DisplayPie = () => (
+const DisplayPie = ({item}) => {
+  const {agriculture,fossilFuel,packaging,refinement,storage,transport,undisclosed} = item.footprintBreakdown
+  console.log(Object.entries(agriculture))
+  const data = [
+    {
+      "id": "Agriculture",
+      "label": "Agriculture",
+      "value": agriculture
+    //   "color": "hsl(336, 70%, 50%)"
+    },
+    {
+      "id": "Packaging",
+      "label": "Packaging",
+      "value": packaging
+    //   "color": "hsl(96, 70%, 50%)"
+    },
+    {
+      "id": "Processing",
+      "label": "Processing",
+      "value": refinement
+    //   "color": "hsl(6, 70%, 50%)"
+    },
+    {
+      "id": "Transport",
+      "label": "Transport",
+      "value": transport
+    //   "color": "hsl(286, 70%, 50%)"
+    },
+    {
+      "id": "Storage",
+      "label": "Storage",
+      "value": storage
+    //   "color": "hsl(31, 70%, 50%)"
+    },
+    {
+      "id": "Uncategorised",
+      "label": "Uncategorised",
+      "value": undisclosed
+        // "color": "hsl(31, 70%, 50%)"
+      }
+  ]
+  return(
     <div style={{height: 400}}>
     <ResponsivePie
 
@@ -80,6 +122,6 @@ const DisplayPie = () => (
         }}
     />
     </div>
-)
+)}
 
 export default DisplayPie

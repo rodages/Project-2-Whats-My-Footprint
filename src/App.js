@@ -7,6 +7,7 @@ import SearchHistory from './components/SearchHistory';
 import SearchResults from './components/SearchResults';
 import Basket from './components/Basket';
 import {useState,useEffect,createContext} from 'react'
+import DisplayItemCard from './components/DisplayItemCard';
 // import About from "./components/About"
 export const HistoryContext = createContext()
 export const BasketContext = createContext()
@@ -37,11 +38,8 @@ function App() {
             </BasketContext.Provider>
           } />
           
-            <Route path="/history" element={
-              <HistoryContext.Provider value={[searchHistoryList,setSearchHistoryList]}>
-                <SearchHistory />
-              </HistoryContext.Provider>
-            }/>
+          <Route path={'/displayitem/:id'} element={<DisplayItemCard/>} />
+            
         </Route>
       </Routes>
     </Router>

@@ -60,7 +60,6 @@ function Farm({market}){
         return <h1>{market} does not have any {stage} data</h1>
     }
 
-    console.log(data)
     return <>
         <DisplayTabs displayPrimaryTab={displayPrimaryTab} updateDisplayPrimaryTab={updateDisplayPrimaryTab}/>
         {displayPrimaryTab?
