@@ -11,10 +11,12 @@ function List({data,description,filter=false}){
 
     // console.log(iso2Code)
     return <>
-        <div className='mt-4'>
+        <div className='columns is-centered mt-4'>
+        <div className="is-8 column">
+
 
         
-        <h1 className='subtitle ml-4'>{description}</h1>
+        <h1 className='title text-is-centered ml-4'>{description}</h1>
         {filter?
         <input className="input is-info is-half" 
         onChange={(e)=>setSearchTerm(e.target.value)}
@@ -60,6 +62,7 @@ function List({data,description,filter=false}){
             })}
         </tbody> */}
     </table>
+        </div>
     </div>
     </>
     

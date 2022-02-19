@@ -108,7 +108,7 @@ const DisplayPie = ({item}) => {
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsThickness={2}
-        arcLabel={d => `${d.value}%`}
+        arcLabel={d => `${Math.round(d.value)}%`}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
