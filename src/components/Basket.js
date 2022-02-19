@@ -3,6 +3,7 @@ import List from './List/List';
 import {useContext, useState, useEffect} from 'react';
 import {BasketContext} from '../App'
 import EmptyTable from './List/EmptyTable';
+import {Link} from 'react-router-dom'
 
 function Basket(){
     const[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr] = useContext(BasketContext)
@@ -16,6 +17,16 @@ function Basket(){
 
     console.log(interestedInArr)
     console.log(wantToAvoidArr)
+    if(interestedInArr.length<1 && wantToAvoidArr.length<1){
+        return <div className=' mt-4 columns is-centered'>
+            <div className='is-centered'>
+            <h1 className='title is-centered'>Oooops seems that you have no data</h1>
+            <Link className='is-centered' to={`/`}>Click here to go to Main Page</Link>
+
+            </div>
+        </div>
+        
+    }
     return (
         <div className="columns is-centered">
         
