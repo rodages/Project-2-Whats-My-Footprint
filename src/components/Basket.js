@@ -16,8 +16,8 @@ function Basket(){
     // },[selectedTab])
 
 
-    console.log(interestedInArr)
-    console.log(wantToAvoidArr)
+    // console.log(interestedInArr)
+    // console.log(wantToAvoidArr)
     if(interestedInArr.length<1 && wantToAvoidArr.length<1){
         return <div className=' mt-4 columns is-centered'>
             <div className='is-centered'>

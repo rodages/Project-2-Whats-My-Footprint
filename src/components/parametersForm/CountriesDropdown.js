@@ -29,7 +29,7 @@ function CountriesDropdown({filterSearchResults}) {
       })
       // console.log(arr)
       setDropdownList(arr)
-      console.log(dropdownList,'dropDown')
+      // console.log(dropdownList,'dropDown')
     }
     getCountriesNames()
   }

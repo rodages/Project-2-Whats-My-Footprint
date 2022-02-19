@@ -5,7 +5,7 @@ import {HistoryContext} from '../App'
 
 function SearchHistory(props){
     const [searchHistoryList,setSearchHistoryList] = useContext(HistoryContext)
-    console.log(searchHistoryList,setSearchHistoryList)
+    // console.log(searchHistoryList,setSearchHistoryList)
     
     return <>
     <DisplayContext />
@@ -16,12 +16,12 @@ function SearchHistory(props){
 }
 function DisplayContext(){
     const [searchHistoryList,setSearchHistoryList] = useContext(HistoryContext)
-    console.log(searchHistoryList)
+    // console.log(searchHistoryList)
     return <h1>{searchHistoryList}</h1>
 }
 function IncreaseContext(props){
     const [searchHistoryList,setSearchHistoryList] = useContext(HistoryContext)
-    console.log(searchHistoryList,props)
+    // console.log(searchHistoryList,props)
     return <button onClick={()=>setSearchHistoryList(searchHistoryList+1)}>Increase</button>
 }
 

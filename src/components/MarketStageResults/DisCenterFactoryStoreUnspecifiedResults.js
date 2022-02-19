@@ -41,7 +41,7 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
     if(data.length<1){
         return <h1>{market} does not have any {stage} data</h1>
     }
-    console.log(data)
+    // console.log(data)
     return(
         <>
             <DisplayTabs displayPrimaryTab={displayPrimaryTab} updateDisplayPrimaryTab={updateDisplayPrimaryTab}/>

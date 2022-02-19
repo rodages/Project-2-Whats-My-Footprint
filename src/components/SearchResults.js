@@ -27,7 +27,7 @@ function SearchResults(){
     //need to do else if statement to check if market is not in stagedropdownbutton available countries or stages - render select market
     
 
-    console.log(market,stage,"params");
+    // console.log(market,stage,"params");
     return <h1>Here we will have search results</h1>
 }
 

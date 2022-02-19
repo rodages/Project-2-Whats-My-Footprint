@@ -20,7 +20,6 @@ function ListItem({item,order, iso2Code}){
     }
     function handleRemoving(arr,setArr){
         const index = arr.findIndex(arrItem=>arrItem.id==item.id)
-        console.log(index)
         setArr([...arr.slice(0,index),...arr.slice(index+1)])
         
     }
