@@ -5,17 +5,27 @@ import { useState } from 'react'
 import ListItem from './ListItem'
 import filterSearchResults from '../Reusable/filterFunction'
 
-function List({data,description,filter=false}){
+function List({data,description,filter=false,total=false}){
     const [searchTerm,setSearchTerm] = useState("")
     const iso2Code = iso.whereAlpha3(data[0].market).alpha2
+    let totalBasketFootprint = undefined
+    
+    if(total){
+        totalBasketFootprint = data.reduce((a,b)=>{
+            return a.totalFootprint+b.totalFootprint
+            }
+            )
+        if(isNaN(totalBasketFootprint)){
+
+            totalBasketFootprint=undefined
+        }
+    }
 
     // console.log(iso2Code)
     return <>
         <div className='columns is-centered mt-4'>
                 <div className="is-8 column">
 
-
-                
                 <h1 className='title text-is-centered ml-4'>{description}</h1>
                 {filter?
                 <input className="input is-info is-half" 
@@ -35,6 +45,15 @@ function List({data,description,filter=false}){
                     </tr>
                 </thead>
                 <tfoot>
+                    {
+                        totalBasketFootprint?
+                        <tr>
+                            <th></th>
+                            <th>Total</th>
+                            <th>{totalBasketFootprint.toFixed(2)}</th>
+                        </tr>:
+                        <tr></tr>
+                    }
                     {/* <tr>
                         <th><abbr title={`${description}`}>Order</abbr></th>
                         <th>Product Name</th>

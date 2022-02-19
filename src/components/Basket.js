@@ -3,10 +3,11 @@ import List from './List/List';
 import {useContext, useState, useEffect} from 'react';
 import {BasketContext} from '../App'
 import EmptyTable from './List/EmptyTable';
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 
 function Basket(){
     const[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr] = useContext(BasketContext)
+    const navigate = useNavigate()
 
     const tabOptions = ["Interested in","Would like to avoid"]
     const [selectedTab, setSelectedTab] = useState(tabOptions[0])
@@ -28,10 +29,13 @@ function Basket(){
         
     }
     return (
+        <div>
+        <button className= {"button is-ghost"}onClick={() => navigate(-1)}>Go back</button>
         <div className="columns is-centered">
-        
-        {interestedInArr.length>0?<List data={interestedInArr} description={"Interested in"} />:<EmptyTable description="There are no items of interest" />}
-        {wantToAvoidArr.length>0?<List data={wantToAvoidArr} description={"Would like to Avoid"} />:<EmptyTable description="There are no items that you want to avoid" />}
+        {interestedInArr.length>0?<List data={interestedInArr} description={"Interested in"} total={true} />:<EmptyTable description="There are no items of interest" />}
+        {wantToAvoidArr.length>0?<List data={wantToAvoidArr} description={"Would like to Avoid"} total={true} />:<EmptyTable description="There are no items that you want to avoid" />}
+
+        </div>
     </div>
         )
 }

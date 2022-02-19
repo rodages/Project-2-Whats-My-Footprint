@@ -44,42 +44,48 @@ import { ResponsivePie } from '@nivo/pie'
 
 const DisplayPie = ({item}) => {
   const {agriculture,fossilFuel,packaging,refinement,storage,transport,undisclosed} = item.footprintBreakdown
-  console.log(Object.entries(agriculture))
+  console.log(item)
   const data = [
     {
       "id": "Agriculture",
       "label": "Agriculture",
-      "value": agriculture
+      "value": agriculture,
+      "percentage": `${item.totalFootprint}`,
     //   "color": "hsl(336, 70%, 50%)"
     },
     {
       "id": "Packaging",
       "label": "Packaging",
-      "value": packaging
+      "value": packaging,
+      "percentage": `${item.totalFootprint}`,
     //   "color": "hsl(96, 70%, 50%)"
     },
     {
       "id": "Processing",
       "label": "Processing",
-      "value": refinement
+      "value": refinement,
+      "percentage": `${item.totalFootprint}`,
     //   "color": "hsl(6, 70%, 50%)"
     },
     {
       "id": "Transport",
       "label": "Transport",
-      "value": transport
+      "value": transport,
+      "percentage": `${item.totalFootprint}`,
     //   "color": "hsl(286, 70%, 50%)"
     },
     {
       "id": "Storage",
       "label": "Storage",
-      "value": storage
+      "value": storage,
+      "percentage": `${item.totalFootprint}`,
     //   "color": "hsl(31, 70%, 50%)"
     },
     {
       "id": "Uncategorised",
       "label": "Uncategorised",
-      "value": undisclosed
+      "value": undisclosed,
+      "percentage": `${item.totalFootprint}`,
         // "color": "hsl(31, 70%, 50%)"
       }
   ]
@@ -108,7 +114,7 @@ const DisplayPie = ({item}) => {
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsThickness={2}
-        arcLabel={d => `${Math.round(d.value)}%`}
+        arcLabel={d => `${Math.round(d.data.value/d.data.percentage*100)}%`}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
