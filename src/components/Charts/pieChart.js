@@ -2,92 +2,52 @@ import { ResponsivePie } from '@nivo/pie'
 
 
 
-  const data = [
-    {
-      "id": "Agriculture",
-      "label": "Agriculture",
-      "value": 86
-    //   "color": "hsl(336, 70%, 50%)"
-    },
-    {
-      "id": "Packaging",
-      "label": "Packaging",
-      "value": 6
-    //   "color": "hsl(96, 70%, 50%)"
-    },
-    {
-      "id": "Processing",
-      "label": "Processing",
-      "value": 4
-    //   "color": "hsl(6, 70%, 50%)"
-    },
-    {
-      "id": "Transport",
-      "label": "Transport",
-      "value": 4
-    //   "color": "hsl(286, 70%, 50%)"
-    },
-    {
-      "id": "Storage",
-      "label": "Storage",
-      "value": 2
-    //   "color": "hsl(31, 70%, 50%)"
-    },
-    {
-      "id": "Uncategorised",
-      "label": "Uncategorised",
-      "value": 3
-        // "color": "hsl(31, 70%, 50%)"
-      }
-  ]
-
 
 const DisplayPie = ({item}) => {
   const {agriculture,fossilFuel,packaging,refinement,storage,transport,undisclosed} = item.footprintBreakdown
-  console.log(item)
   const data = [
     {
       "id": "Agriculture",
       "label": "Agriculture",
       "value": agriculture,
-      "percentage": `${item.totalFootprint}`,
-    //   "color": "hsl(336, 70%, 50%)"
+      "percentage": `${item.totalFootprint}`
     },
     {
       "id": "Packaging",
       "label": "Packaging",
       "value": packaging,
-      "percentage": `${item.totalFootprint}`,
-    //   "color": "hsl(96, 70%, 50%)"
+      "percentage": `${item.totalFootprint}`
     },
     {
       "id": "Processing",
       "label": "Processing",
       "value": refinement,
-      "percentage": `${item.totalFootprint}`,
-    //   "color": "hsl(6, 70%, 50%)"
+      "percentage": `${item.totalFootprint}`
     },
     {
       "id": "Transport",
       "label": "Transport",
       "value": transport,
-      "percentage": `${item.totalFootprint}`,
-    //   "color": "hsl(286, 70%, 50%)"
+      "percentage": `${item.totalFootprint}`
     },
     {
       "id": "Storage",
       "label": "Storage",
       "value": storage,
-      "percentage": `${item.totalFootprint}`,
-    //   "color": "hsl(31, 70%, 50%)"
+      "percentage": `${item.totalFootprint}`
     },
     {
       "id": "Uncategorised",
       "label": "Uncategorised",
       "value": undisclosed,
-      "percentage": `${item.totalFootprint}`,
-        // "color": "hsl(31, 70%, 50%)"
-      }
+      "percentage": `${item.totalFootprint}`
+      },
+      {
+        "id": "Fossils",
+        "label": "Fossil Fuel",
+        "value": fossilFuel,
+        "percentage": `${item.totalFootprint}`
+        }
   ]
   return(
     <div style={{height: 400}}>
@@ -114,7 +74,7 @@ const DisplayPie = ({item}) => {
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsThickness={2}
-        arcLabel={d => `${Math.round(d.data.value/d.data.percentage*100)}%`}
+        arcLabel={d => `${(d.data.value/d.data.percentage*100).toFixed(2)}%`}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{

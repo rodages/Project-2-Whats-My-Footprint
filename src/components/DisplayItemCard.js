@@ -9,7 +9,7 @@ function DisplayItemCard(){
 
     return(
         <>
-        <button onClick={() => navigate(-1)}>Go back</button>
+        <button  className= {"button is-ghost"} onClick={() => navigate(-1)}>Go back</button>
         <div className="card">
             <header className="card-header">
                 <p className="card-header-title">{item.productName}</p>
