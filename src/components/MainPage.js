@@ -36,8 +36,8 @@ function MainPage({dropdownList}){
 
             </div>
         </div>
-        {/* <DisplayPie/>
-        <MyResponsiveBar/> */}
+        <DisplayPie/>
+        <MyResponsiveBar/>
 
     </>
     )

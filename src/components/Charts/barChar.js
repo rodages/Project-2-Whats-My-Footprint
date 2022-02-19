@@ -1,4 +1,4 @@
-// import { ResponsiveBar } from '@nivo/bar'
+import { ResponsiveBar } from '@nivo/bar'
 
 const data = [
     {
@@ -51,4 +51,4 @@ const data = [
     </div>
 )
 
-// export default MyResponsiveBar
+export default MyResponsiveBar

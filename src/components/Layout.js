@@ -12,12 +12,6 @@ function Layout() {
               <Link to="/" className="navbar-item">
                 Home
               </Link>
-              <Link to={"/history"} className="navbar-item">
-                History
-              </Link>
-              <Link to={"/searchresults"} className="navbar-item">
-                Last Search
-              </Link>
               <Link to="/basket" className="navbar-item">
                 Basket
               </Link>

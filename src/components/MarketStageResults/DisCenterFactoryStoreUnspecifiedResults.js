@@ -1,9 +1,12 @@
 import {useState,useEffect,useContext} from 'react'
 import StagesItem from './StagesItem';
 import TopLists from './TopLists';
+import List from '../List/List';
+import DisplayTabs from '../DisplayTabs';
 
 function DisCenterFactoryStoreUnspecified({market,stage}){
     const [data,setData] = useState(undefined)
+    const [displayPrimaryTab,updateDisplayPrimaryTab] = useState(true)
 
     useEffect(()=>{
         async function getProductData(){
@@ -41,10 +44,15 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
     console.log(data)
     return(
         <>
-            <TopLists data={data} />
-            {data.map((item,i)=>{
+            <DisplayTabs displayPrimaryTab={displayPrimaryTab} updateDisplayPrimaryTab={updateDisplayPrimaryTab}/>
+            {displayPrimaryTab?
+            <TopLists data={data} />:
+            <List data={data} description="List of All Items" filter={true} />
+
+            }
+            {/* {data.map((item,i)=>{
                 return <StagesItem key={i} item={item} />
-            })}
+            })} */}
         </>
     )
 }

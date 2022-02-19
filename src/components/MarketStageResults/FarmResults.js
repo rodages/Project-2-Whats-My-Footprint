@@ -1,9 +1,15 @@
 import {useState,useEffect,useContext} from 'react'
+import List from '../List/List'
+import ListItem from '../List/ListItem'
 import FarmItem from './FarmItem'
 import TopLists from './TopLists'
+import DisplayTabs from '../DisplayTabs'
+
+
 
 function Farm({market}){
     const [data,setData] = useState(undefined)
+    const [displayPrimaryTab,updateDisplayPrimaryTab] = useState(true)
 
     useEffect(()=>{
         async function getCountryFarmData(){
@@ -56,10 +62,13 @@ function Farm({market}){
 
     console.log(data)
     return <>
-        <TopLists data={data} />
-        {data.map((item,i)=>{
+        <DisplayTabs displayPrimaryTab={displayPrimaryTab} updateDisplayPrimaryTab={updateDisplayPrimaryTab}/>
+        {displayPrimaryTab?
+        <TopLists data={data} />:
+        <List data={data} description="List of All Items" filter={true} />}
+        {/* {data.map((item,i)=>{
             return <FarmItem key={i} item={item} />
-        })}
+        })} */}
     </>
 }
 

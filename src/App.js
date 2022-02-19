@@ -14,7 +14,7 @@ export const BasketContext = createContext()
 function App() {
   const [searchHistoryList,setSearchHistoryList]=useState(1)
   const [interestedInArr,setInterestedInArr] = useState([])
-  const [wantToAvoidArr,setWantToAvoidArr] = useState(["avoid"])
+  const [wantToAvoidArr,setWantToAvoidArr] = useState([])
   
 
 
@@ -23,24 +23,25 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout searchHistoryList={searchHistoryList} />}>
 
-        <Route index element={<MainPage/>} />
+          <Route index element={<MainPage/>} />
 
-        <Route path="/basket" element={
-          <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
-            <Basket />
-          </BasketContext.Provider>
-        } />
+          <Route path="/basket" element={
+            <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
+              <Basket />
+            </BasketContext.Provider>
+          } />
 
-        <Route path={`/search/market=:market&stage=:stage`} element={
-          <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
-            <SearchResults/>
-          </BasketContext.Provider>
-        } />
-          <Route path="/history" element={
-            <HistoryContext.Provider value={[searchHistoryList,setSearchHistoryList]}>
-              <SearchHistory />
-            </HistoryContext.Provider>
-          }/>
+          <Route path={`/search/market=:market&stage=:stage`} element={
+            <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
+              <SearchResults/>
+            </BasketContext.Provider>
+          } />
+          
+            <Route path="/history" element={
+              <HistoryContext.Provider value={[searchHistoryList,setSearchHistoryList]}>
+                <SearchHistory />
+              </HistoryContext.Provider>
+            }/>
         </Route>
       </Routes>
     </Router>
