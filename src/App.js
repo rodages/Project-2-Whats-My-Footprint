@@ -1,33 +1,48 @@
 import 'bulma/css/bulma.min.css';
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 import Layout from "./components/Layout"
 import MainPage from "./components/MainPage"
 import SearchHistory from './components/SearchHistory';
 import SearchResults from './components/SearchResults';
+import Basket from './components/Basket';
 import {useState,useEffect,createContext} from 'react'
-// import About from "./components/About"
-
+import DisplayItemCard from './components/DisplayItemCard';
+import About from "./components/About"
+export const HistoryContext = createContext()
+export const BasketContext = createContext()
 
 function App() {
-  const [searchHistoryList,setSearchHistoryList]=useState(["one","two","three"])
-  const Context = createContext("Default Value")
-  const searchResults = {market:"GBR",stage:"Farm"}
+  const [searchHistoryList,setSearchHistoryList]=useState(1)
+  const [interestedInArr,setInterestedInArr] = useState([])
+  const [wantToAvoidArr,setWantToAvoidArr] = useState([])
+  
 
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Layout searchHistoryList={searchHistoryList} />}>
+
           <Route index element={<MainPage/>} />
-          <Route path="/history" element={
-            <Context.Provider value={"hello"}>
-              <SearchHistory/>
-            </Context.Provider>
+
+          <Route path="/basket" element={
+            <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
+              <Basket />
+            </BasketContext.Provider>
           } />
-          <Route path={`/search/market=:market&stage=:stage`} element={<SearchResults/>} />
-          {/* <Route path="/market" element={<About />} /> */}
-          {/* <Route path="/country/:countryName" element={<ShowCountry />} /> */}
+
+          <Route path={`/search/market=:market&stage=:stage`} element={
+            <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
+              <SearchResults/>
+            </BasketContext.Provider>
+          } />
+          
+          <Route path={'/displayitem/:id'} element={<DisplayItemCard/>} />
+          <Route path="/about" element={<About />}/>
+            
         </Route>
       </Routes>
     </Router>

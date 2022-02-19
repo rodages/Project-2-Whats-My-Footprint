@@ -1,8 +1,15 @@
 import {useState,useEffect,useContext} from 'react'
+import List from '../List/List'
+import ListItem from '../List/ListItem'
 import FarmItem from './FarmItem'
+import TopLists from './TopLists'
+import DisplayTabs from '../DisplayTabs'
+
+
 
 function Farm({market}){
     const [data,setData] = useState(undefined)
+    const [displayPrimaryTab,updateDisplayPrimaryTab] = useState(true)
 
     useEffect(()=>{
         async function getCountryFarmData(){
@@ -16,11 +23,12 @@ function Farm({market}){
             const data = await response.json()
             const hits =data.hits.hits
             const arr = hits.map(item=>{
-                console.log(item)
                 return {
                     "id":item._id,
-                    "name":item._source.productName,
-                    "totalClimateFootprint":item._source.totalClimateFootprint,
+                    "productName":item._source.productName,
+                    "market":item._source.locationCode,
+                    "totalFootprint":item._source.totalClimateFootprint,
+                    
 
                     "totalCH4Footprint":item._source.totalCh4ClimateFootprint,
                     "totalN2oFootprint":item._source.totalN2oClimateFootprint,
@@ -38,7 +46,7 @@ function Farm({market}){
                     productInfo:`https://apps.carboncloud.com/climatehub/agricultural-reports/benchmarks/${item._id}`
                 }
             })
-            arr.sort((current,next)=>current.name.localeCompare(next.name))
+            arr.sort((current,next)=>current.productName.localeCompare(next.productName))
             setData(arr)
         }
         getCountryFarmData()
@@ -52,11 +60,14 @@ function Farm({market}){
         return <h1>{market} does not have any {stage} data</h1>
     }
 
-    console.log(data)
     return <>
-        {data.map((item,i)=>{
+        <DisplayTabs displayPrimaryTab={displayPrimaryTab} updateDisplayPrimaryTab={updateDisplayPrimaryTab}/>
+        {displayPrimaryTab?
+        <TopLists data={data} />:
+        <List data={data} description="List of All Items" filter={true} />}
+        {/* {data.map((item,i)=>{
             return <FarmItem key={i} item={item} />
-        })}
+        })} */}
     </>
 }
 

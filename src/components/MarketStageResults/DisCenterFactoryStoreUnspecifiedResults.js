@@ -1,8 +1,12 @@
 import {useState,useEffect,useContext} from 'react'
 import StagesItem from './StagesItem';
+import TopLists from './TopLists';
+import List from '../List/List';
+import DisplayTabs from '../DisplayTabs';
 
 function DisCenterFactoryStoreUnspecified({market,stage}){
     const [data,setData] = useState(undefined)
+    const [displayPrimaryTab,updateDisplayPrimaryTab] = useState(true)
 
     useEffect(()=>{
         async function getProductData(){
@@ -13,14 +17,13 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
                 },
                 })
             const data = await response.json();
-            console.log(data)
             const arr = data.hits.hits.map(item=>{
-                console.log(item)
                 return {
                     "id":item._id,
                     "productName":item._source.productName,
-                    "footprintBreakdown":item._source.footprintBreakdown,
+                    "market":item._source.market,
                     "totalFootprint":item._source.totalFootprint,
+                    "footprintBreakdown":item._source.footprintBreakdown,
                     "imageUrl":item._source.imageUrl,
                     "productInfo":item._source.reportUrl
                 }
@@ -41,9 +44,15 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
     console.log(data)
     return(
         <>
-            {data.map((item,i)=>{
+            <DisplayTabs displayPrimaryTab={displayPrimaryTab} updateDisplayPrimaryTab={updateDisplayPrimaryTab}/>
+            {displayPrimaryTab?
+            <TopLists data={data} />:
+            <List data={data} description="List of All Items" filter={true} />
+
+            }
+            {/* {data.map((item,i)=>{
                 return <StagesItem key={i} item={item} />
-            })}
+            })} */}
         </>
     )
 }

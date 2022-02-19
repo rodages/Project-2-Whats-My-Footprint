@@ -5,29 +5,35 @@ import React from "react"
 function Layout() {
   return (
     <>
-      <header>
-        <nav className="navbar is-primary">
-          <div className="container">
-            <div className="navbar-brand">
-              <Link to="/" className="navbar-item">
-                Home
-              </Link>
-              <Link to={"/history"} className="navbar-item">
-                History
-              </Link>
-              <Link to={"/searchresults"} className="navbar-item">
-                Last Search
-              </Link>
-              {/* <Link to="/countries" className="navbar-item">
-                All Countries
-              </Link> */}
-            </div>
+    <header>
+      <nav className="navbar is-primary">
+        <div className="container">
+          <div className="navbar-brand">
+            <Link to="/" className="navbar-item">
+              Home
+            </Link>
+            <Link to="/basket" className="navbar-item">
+              Basket
+            </Link>
           </div>
-        </nav>
-      </header>
-      <main>
-        <Outlet />
-      </main>
+        </div>
+      </nav>
+    </header>
+    <main >
+      <Outlet />
+      <br></br>
+    </main>
+    <footer className="footer">
+      <div className="content has-text-centered is-primary">
+        <p>Our app collects data available on the <a href="https://carboncloud.com/" target="_blank">Carbon Cloud API</a>
+        </p>
+        <Link to="about">
+          <p>
+            <strong>About Us</strong>
+          </p>
+        </Link>
+      </div>
+    </footer>
     </>
   )
 }

@@ -1,7 +1,4 @@
 
-//totalCH4Footprint: 0
-// totalN2oFootprint: 0.01643
-// totalCo2Footprint: 0.1637
 
 const FarmItem = ({item}) => {
   return (

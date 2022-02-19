@@ -1,21 +1,20 @@
-// import {useState} from 'react'
-import CountryDropdown from "./CountryDropdownButton"
-import StageDropdown from "./StageDropdownButton"
-
 import Form from './Form/Form'
-import DisplayPie from "./Charts/pieChart"
-import MyResponsiveBar from "./Charts/barChar"
+
 
 function MainPage({dropdownList}){
     return (
     <>
-        <h3>This is the main page</h3>
+        <br></br>
         <div className="columns is-centered">
             <div className="column is-8">
             
                 <article className="message is-primary">
                     <div className="message-body">
-                        The description of the app will go here.
+                        <q>Food production accounts for one-quarter of the world’s greenhouse gas emissions and takes up half of the planet’s habitable surface.</q>
+                        <br></br>
+                        <figcaption>-CarbonBrief</figcaption>
+                        <br></br>
+                        <p>Scroll through the food items from all around the world and learn about their carbon footprint at the different stages of the food production chain.</p>
                     </div>
                 </article>
 
@@ -24,7 +23,7 @@ function MainPage({dropdownList}){
 
                     <header className="card-header">
                         <p className="card-header-title has-background-primary-dark has-text-primary-light">
-                        Check out the carbon footprint of your food
+                        Explore the carbon footprint of your food
                         </p>
                     </header>
 
@@ -36,9 +35,6 @@ function MainPage({dropdownList}){
 
             </div>
         </div>
-        <DisplayPie/>
-        <MyResponsiveBar/>
-
     </>
     )
 }

@@ -13,9 +13,6 @@ function Form(){
     function handleSubmitForm(e){
         e.preventDefault()
         if(displayError()){return}
-        // console.log(`this runs`);
-        // console.log(SearchResults);
-        // console.log(navigate);
         navigate(`/search/market=${marketCode}&stage=${stageOption}`, {state:{market:marketCode,stage:stageOption}});
     }
 
@@ -28,7 +25,7 @@ function Form(){
     }
 
     return <div className="content">
-        <p>Select your market and Stage</p>
+        <p>Check out food items by markets and food production stages:</p>
         <div className="columns has-text-primary-dark">
             <div className="column"><CountryDropdown setMarketCode={setMarketCode}/></div>
             <div className="column"><StageDropdown setStageOption={setStageOption}/></div>

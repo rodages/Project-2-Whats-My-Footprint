@@ -6,6 +6,7 @@ function StagesItem({item}){
                     <img src={`${item.imageUrl}`}/>
                     <ul>
                         <li>product id: {item.id}</li>
+                        <li>market: {item.market}</li>
                         <li>total footprint: {item.totalFootprint}</li>
                     </ul>
                     <ul>FootprintBreakdown:
