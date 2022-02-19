@@ -1,20 +1,37 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Template
 
-## Using NPM
+# Overview
 
-`npm run start` or `npm run dev`  to run the development server
+The second project was to build a React application that consumes a public API.
 
-`npm run build` to create a build directory
+# The Brief
 
-## Using Yarn
+The app had to:
 
-`yarn start` or `yarn dev`  to run the development server
+* Consume a public API – this could be anything but it must make sense for your project.
+* The app should include a router - with several "pages".
+* Include wireframes - that you designed before building the app.
+* Have semantically clean HTML - you make sure you write HTML that makes structural sense rather than thinking about how it might look, which is the job of CSS.
+* Be deployed online and accessible to the public.
 
-`yarn build` to create a build directory
+# Deployment
 
-### ⚠️
+The app can be viewed here: https://whatsmyfootprint.netlify.app/
 
-To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`, rename the `.env.example` to `.env` and restart your development server. Note this will only change the behaviour of certain linter errors to now be warnings, and is added just to allow your code to compile in development. These errors should still be fixed and other errors will still result in the code being unable to compile
+# Technologies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* JavaScript
+* React Router/Dom
+* Bulma
+* VSCode
+* Git/GitHub
+
+# Installation
+
+* Clone the repo
+* Visit https://developers.carboncloud.com/ and register.
+* Request an API key or use the public one.
+* Install all frontend packages (from package.json) by running yarn
+* Start server with yarn start
+
 
