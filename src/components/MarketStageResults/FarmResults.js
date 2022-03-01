@@ -1,7 +1,6 @@
 import {useState,useEffect,useContext} from 'react'
 import List from '../List/List'
 import ListItem from '../List/ListItem'
-import FarmItem from './FarmItem'
 import TopLists from './TopLists'
 import DisplayTabs from '../DisplayTabs'
 
@@ -16,7 +15,7 @@ function Farm({market}){
             const response = await fetch('https://api.carboncloud.com/v0/search?q=&market=GBR&gate=Farm', {
                 headers: {
                 Accept: 'application/json',
-                "X-API-KEY" : "95NOSm7wU24EJ3zqf7IN99yFRQkWyhmcThAIwew3",
+                "X-API-KEY" : "vC6geUlI2W34sDjtXAfcmCGdCGQTS4JrSS9BWgta",
                 },
                 })
   
@@ -65,9 +64,6 @@ function Farm({market}){
         {displayPrimaryTab?
         <TopLists data={data} />:
         <List data={data} description="List of All Items" filter={true} />}
-        {/* {data.map((item,i)=>{
-            return <FarmItem key={i} item={item} />
-        })} */}
     </>
 }
 

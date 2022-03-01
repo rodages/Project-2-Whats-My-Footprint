@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 import Layout from "./components/Layout"
 import MainPage from "./components/MainPage"
-import SearchHistory from './components/SearchHistory';
 import SearchResults from './components/SearchResults';
 import Basket from './components/Basket';
 import {useState,useEffect,createContext} from 'react'
@@ -15,7 +14,6 @@ export const HistoryContext = createContext()
 export const BasketContext = createContext()
 
 function App() {
-  const [searchHistoryList,setSearchHistoryList]=useState(1)
   const [interestedInArr,setInterestedInArr] = useState([])
   const [wantToAvoidArr,setWantToAvoidArr] = useState([])
   
@@ -24,7 +22,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout searchHistoryList={searchHistoryList} />}>
+        <Route path="/" element={<Layout />}>
 
           <Route index element={<MainPage/>} />
 

@@ -3,8 +3,6 @@ function EmptyTable({description}){
 
     return <>
         <div className='mt-4'>
-
-        
         <h1 className='subtitle has-text-centered '>{description}</h1>
         <table className="column table is-half">
         <thead>

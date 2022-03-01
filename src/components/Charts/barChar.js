@@ -49,7 +49,7 @@ import { ResponsiveBar } from '@nivo/bar'
         colors={{ scheme: 'nivo' }}
         colorBy={'indexValue'}
         role="application"
-        ariaLabel="Nivo bar chart demo"
+        ariaLabel="CO₂e/kg breakdown bar chart"
         barAriaLabel={function(e){return e.id+": "+e.formattedValue+" in country: "+e.indexValue}}
     />
     </div>

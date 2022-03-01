@@ -1,9 +1,4 @@
-import {useState,useEffect} from 'react'
-
-
 function StageDropdown({setStageOption}){
-    const [dropdownList,setDropdownList] = useState(undefined);
-    
     return (
         <div className="select is-primary">
             <select onChange={(e)=>{setStageOption(e.target.value)}}>

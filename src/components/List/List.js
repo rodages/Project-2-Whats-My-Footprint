@@ -12,8 +12,8 @@ function List({data,description,filter=false,total=false}){
     
     if(total){
         totalBasketFootprint = data.reduce((a,b)=>{
-            return a.totalFootprint+b.totalFootprint
-            }
+            return a+b.totalFootprint
+            },0
             )
         if(isNaN(totalBasketFootprint)){
 
@@ -46,8 +46,8 @@ function List({data,description,filter=false,total=false}){
                                     <th>Product Name</th>
                                     {/* <th>Flag</th> */}
                                     <th><abbr title="Total Climate Footprint">Total Climate Footprint</abbr></th>
-                                    <th><abbr title='Add item to "Interested In" basket'>Interested In</abbr></th>
-                                    <th><abbr title='Add item to "Want To Avoid" basket'>Want To Avoid</abbr></th>
+                                    <th><abbr title='Add item to "Interested In" basket'>Interested In Basket</abbr></th>
+                                    <th><abbr title='Add item to "Want To Avoid" basket'>Want To Avoid Basket</abbr></th>
                                     {/* <th><abbr title='Remove Item From Display List'>Delete Item</abbr></th> */}
                                 </tr>
                             </thead>

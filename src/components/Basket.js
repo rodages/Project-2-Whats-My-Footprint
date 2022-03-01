@@ -30,7 +30,7 @@ function Basket(){
     }
     return (
         <div>
-        <button className= {"button is-ghost"}onClick={() => navigate(-1)}>Go back</button>
+        <button className= {"button is-ghost"} onClick={() => navigate(-1)}>Go back</button>
         <div className="columns is-centered">
         {interestedInArr.length>0?<List data={interestedInArr} description={"Interested in"} total={true} />:<EmptyTable description="There are no items of interest" />}
         {wantToAvoidArr.length>0?<List data={wantToAvoidArr} description={"Would like to Avoid"} total={true} />:<EmptyTable description="There are no items that you want to avoid" />}

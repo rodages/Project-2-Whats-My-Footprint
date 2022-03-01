@@ -1,8 +1,8 @@
 import {useState,useEffect} from 'react'
 import { useNavigate } from "react-router-dom"
 
-import CountryDropdown from '../CountryDropdownButton'
-import StageDropdown from '../StageDropdownButton'
+import CountryDropdown from '../Dropdowns/CountryDropdown'
+import StageDropdown from '../Dropdowns/StageDropdown'
 import SearchResults from '../SearchResults';
 
 function Form(){
