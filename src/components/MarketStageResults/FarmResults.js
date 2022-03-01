@@ -18,7 +18,7 @@ function Farm({market}){
             const response = await fetch('https://api.carboncloud.com/v0/search?q=&market=GBR&gate=Farm', {
                 headers: {
                 Accept: 'application/json',
-                "X-API-KEY" : process.env.REACT_APP_API_KEY,
+                "X-API-KEY" : "vC6geUlI2W34sDjtXAfcmCGdCGQTS4JrSS9BWgta",
                 },
                 })
   

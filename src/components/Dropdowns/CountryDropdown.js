@@ -10,16 +10,11 @@ function CountryDropdown({setMarketCode}){
             const response = await fetch('https://api.carboncloud.com/v0/search', {
                 headers: {
                 Accept: 'application/json',
-                "X-API-KEY" : process.env.REACT_APP_API_KEY,
+                "X-API-KEY" : "vC6geUlI2W34sDjtXAfcmCGdCGQTS4JrSS9BWgta",
                 },
                 })
             const data = await response.json()
             const buckets =data.aggregations.Markets.Markets.buckets
-            // const arr = buckets.map(item=>{
-            //     const {country:countryName,alpha3:countryCode} = iso.whereAlpha3(item.key)
-            //     return {countryName,countryCode}
-            // })
-            // arr.sort((current,next)=>current.countryName.localeCompare(next.countryName))
             setDropdownList(iso3SortedList(buckets))
         }
         getCountriesNames()
