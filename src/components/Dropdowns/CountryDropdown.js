@@ -10,7 +10,7 @@ function CountryDropdown({setMarketCode}){
             const response = await fetch('https://api.carboncloud.com/v0/search', {
                 headers: {
                 Accept: 'application/json',
-                "X-API-KEY" : "vC6geUlI2W34sDjtXAfcmCGdCGQTS4JrSS9BWgta",
+                "X-API-KEY" : process.env.REACT_APP_API_KEY,
                 },
                 })
             const data = await response.json()

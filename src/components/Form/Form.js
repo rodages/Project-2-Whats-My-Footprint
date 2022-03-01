@@ -5,7 +5,7 @@ import CountryDropdown from '../Dropdowns/CountryDropdown'
 import StageDropdown from '../Dropdowns/StageDropdown'
 import SearchResults from '../SearchResults';
 
-function Form(){
+function Form({prompt}){
     const [marketCode,setMarketCode]=useState(undefined)
     const [stageOption,setStageOption]=useState(undefined);
     const navigate = useNavigate()
@@ -25,16 +25,16 @@ function Form(){
     }
 
     return <div className="content">
-        <p>Check out food items by markets and food production stages:</p>
+        <p>{prompt}</p>
         <div className="columns has-text-primary-dark">
             <div className="column"><CountryDropdown setMarketCode={setMarketCode}/></div>
             <div className="column"><StageDropdown setStageOption={setStageOption}/></div>
         </div>
 
         <div className="columns is-centered">
-            <div className="control">
+            <div className="control has-text-centered">
                 {displayError()}
-                <button onClick={(e)=>{handleSubmitForm(e)}} className="button is-primary is-small">Check CO2</button>
+                <button onClick={(e)=>{handleSubmitForm(e)}} className=" button is-primary is-small">Check CO2</button>
             </div>
         </div>
 
