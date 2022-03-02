@@ -184,6 +184,45 @@ if falsy value is returned - form will be "submitted" and navigation to path wit
 
 
 #### <a name='results'>Search Results</a>
+
+```
+    <Route path={`/search/market=:market&stage=:stage`} element={
+    <BasketContext.Provider value={[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr]}>
+        <SearchResults/>
+    </BasketContext.Provider>
+    } />
+```
+
+useContext is used to pass currently selected items to the `<SearchResults/>` element and its children from `<App/>`
+
+```
+    market = useLocation().state.market
+    stage = useLocation().state.stage
+
+```
+set market and stage from form submission
+
+```
+    if(!market){
+        market = useParams().market
+    }
+    if(!stage){
+        stage = useParams().stage
+    }
+
+```
+if no data has been provided via form, take `:market` and `stage` parameters from url.
+!This works only in development and crashes in production. It will be discussed in bugs section.
+
+```
+const stages = ["DistributionCenter","Factory","StoreShelf","NoSpecific"]
+    if(stage==="Farm"){
+        return <FarmResults market={market} stage={stage} />
+    } else if(stages.includes(stage)){
+        return <DisCenterFactoryStoreUnspecifiedResults market={market} stage={stage} />
+    }
+```
+Renders Farm or Other stages depending on selected stage
 #### <a name='farm-results'>Farm Search Results</a>
 #### <a name='other-results'>Other Stages Search Results</a>
 
