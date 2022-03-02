@@ -1,5 +1,7 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Project-2-What's My Footprint
 
+## TABLE OF CONTENTS
+
 - [Overview](#overview)
   - [Brief](#brief)
   - [Technologies Used](#technologies)
