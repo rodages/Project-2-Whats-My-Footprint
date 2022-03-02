@@ -1,5 +1,11 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Project-2-What's My Footprint
-[Carbon Cloud API](https://carboncloud.com/climate-footprint-api/)
+We have selected [Carbon Cloud API](https://carboncloud.com/climate-footprint-api/) to get products Carbon dioxide equivalent (CO2e). Our application aims to allow users to:
+- Display products from various Countries/Markets based on the selected production stage.
+- Search for products by name from the rendered list.
+- Show Most and Least emissive products from selected categories.
+- Add selected products to "Interested In" or "Would like to Avoid" baskets
+- Estimate the total impact of products in the baskets.
+
 
 # Overview
 
