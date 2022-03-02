@@ -7,6 +7,9 @@
   - [Technologies Used](#technologies)
   - [Installation](#installation)
 - [Development](#development)
+  - [Get Countries](#countries)
+    - [Get Countries Code Snippet](#country-code)
+    - [Get Countries Demo](#country-demo)
   - [Demo](#demo)
   - [Code Snippets](#snippets)
   - [Styling](#styling)
@@ -59,9 +62,12 @@ The app had to:
 * Install all frontend packages (from package.json) by running `npm install`
 * Start server with `npm run start`
 
+## <a name='development'>Development</a>
 
+### <a name='countries'>Get Countries</a>
 
-# <a name='development'>Development</a>
+#### <a name='country-code'>Get Countries Code Snippet</a>
+#### <a name='country-demo'>Get Countries Demo</a>
 
 
 
