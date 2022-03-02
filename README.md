@@ -15,8 +15,8 @@
     - [Search Demo](#search-demo)
     - [Form](#form)
     - [Search Results](#results)
-    - [Farm results](#farm-results)
-    - [Other Results](#other-results)
+    - [Farm Search Results](#farm-results)
+    - [Other Stages Search Results](#other-results)
   - [Styling](#styling)
 - [Difficulties](#difficulties)
   - [Known bugs](#bugs)
@@ -137,11 +137,57 @@ Stages object is imported from reusable forlder to generate currently available 
 
 ![Submit Search](./screenshots/2.request-farm-search.gif "Submit Search")
 
+#### <a name='form'>Form</a>
 
-    - [Form](#form)
-    - [Search Results](#results)
-    - [Farm results](#farm-results)
-    - [Other Results](#other-results)
+```
+return <div className="content">
+    <p>{prompt}</p>
+    <div className="columns has-text-primary-dark">
+        <div className="column"><CountryDropdown setMarketCode={setMarketCode}/></div>
+        <div className="column"><StageDropdown setStageOption={setStageOption}/></div>
+    </div>
+
+```
+Renders Market and Stage dropdowns.
+
+```
+    function displayError(){
+        const text = "Please select"
+        if(!marketCode&&!stageOption){return <p>{text} Market and Stage</p>} 
+        else if(!marketCode){return <p>{text} Market</p>}
+        else if(!stageOption){return <p>{text} Stage </p>}
+        else return ""
+    }
+
+```
+`displayError` function returns a paragraph or empty string. Apart from displaying missing information for submission it also used as validator within `handleSubmitForm`.
+
+```
+function handleSubmitForm(e){
+    e.preventDefault()
+    if(displayError()){return}
+    navigate(`/search/market=${marketCode}&stage=${stageOption}`, {state:{market:marketCode,stage:stageOption}});
+    }
+
+    ...
+
+    <div className="columns is-centered">
+    <div className="control has-text-centered">
+        {displayError()}
+        <button onClick={(e)=>{handleSubmitForm(e)}} className=" button is-primary is-small">Check CO2</button>
+    </div>
+
+```
+
+`handleSubmitForm` checks if `displayError` returns truthy value indicating that there are parameters missing to return early.
+if falsy value is returned - form will be "submitted" and navigation to path with <SearchResults /> will triggered.
+
+
+#### <a name='results'>Search Results</a>
+#### <a name='farm-results'>Farm Search Results</a>
+#### <a name='other-results'>Other Stages Search Results</a>
+
+
 
 
 
