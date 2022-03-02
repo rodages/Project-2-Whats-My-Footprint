@@ -7,9 +7,11 @@
   - [Technologies Used](#technologies)
   - [Installation](#installation)
 - [Development](#development)
-  - [Get Countries](#countries)
-    - [Get Countries Code Snippet](#country-code)
+  - [Dropdowns](#dropdowns)
     - [Get Countries Demo](#country-demo)
+    - [Get Countries Code Snippet](#country-code)
+    - [Stages Dropdown](#stages-dropdown)
+- [Get Countries](#countries)
   - [Styling](#styling)
 - [Difficulties](#difficulties)
   - [Known bugs](#bugs)
@@ -62,12 +64,12 @@ The app had to:
 
 ## <a name='development'>Development</a>
 
-### <a name='countries'>Dropdowns</a>
+### <a name='dropdowns'>Dropdowns</a>
 
 #### <a name='country-demo'>Get Countries Demo</a>
 
-[![Loading Countries](./screenshots/0.loading.PNG "Loading Countries")]
-[![Loaded Countries](./screenshots/1.selectMarkets.PNG "Loaded Countries")]
+![Loading Countries](./screenshots/0.loading.PNG "Loading Countries")
+![Loaded Countries](./screenshots/1.selectMarkets.PNG "Loaded Countries")
 
 #### <a name='country-code'>Get Countries Code Snippet</a>
 ```
@@ -97,10 +99,30 @@ const [dropdownList,setDropdownList] = useState(undefined);
     }
     ,[])
 ```
-APi returns ISO3 code of available countries from initial search
+API returns deeply nested ISO3 code of available countries from the initial search which will be used to generate future queries for products. To use it for dropdown we have used `iso-3166-1` library to get full names of the countries. We have also made a sorting function `iso3SortedList(arr)` to clean up the code and make it more reusable.
 
 
-#### <a name='stages dropdown'>Stages Dropdown</a>
+#### <a name='stages-dropdown'>Stages Dropdown</a>
+
+```
+const stages = {
+    DistributionCenter: "At Distribution Center",
+    Factory:"At Factory",
+    Farm:"At Farm",
+    StoreShelf:"At Store",
+    NoSpecific:"Unspecified"
+}
+
+<div className="select is-primary">
+            <select onChange={(e)=>{setStageOption(e.target.value)}}>
+                <option hidden>Select Stage &#127981;</option>
+                {Object.entries(stages).map((stage,i)=>{
+                    return <option key={i} value={stage[0]}>{stage[1]}</option>
+                })}
+            </select>
+        </div>
+```
+Stages object is imported from reusable forlder to generate currently available stages. This information is not accessible by API call hence had to be hardcoded. 
 
 
 
