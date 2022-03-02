@@ -1,4 +1,14 @@
-.rows{
-    display:flex;
-    flex-direction: rows;
-}
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+// .is-fullheight-100vh {
+//     height:100vh;
+// }
+
+.footer {
+    position:flex;
+    left:0px;
+    bottom:0px;
+    height:5px;
+    width:100%;
+    background:#999;
+ }
