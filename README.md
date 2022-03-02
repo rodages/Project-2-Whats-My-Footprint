@@ -11,7 +11,12 @@
     - [Get Countries Demo](#country-demo)
     - [Get Countries Code Snippet](#country-code)
     - [Stages Dropdown](#stages-dropdown)
-- [Get Countries](#countries)
+- [Search Request](#search)
+    - [Search Demo](#search-demo)
+    - [Form](#form)
+    - [Search Results](#results)
+    - [Farm results](#farm-results)
+    - [Other Results](#other-results)
   - [Styling](#styling)
 - [Difficulties](#difficulties)
   - [Known bugs](#bugs)
@@ -104,6 +109,7 @@ API returns deeply nested ISO3 code of available countries from the initial sear
 
 #### <a name='stages-dropdown'>Stages Dropdown</a>
 
+![Stages Dropdown](./screenshots/stages.PNG "Stages Dropdown")
 ```
 const stages = {
     DistributionCenter: "At Distribution Center",
@@ -125,9 +131,17 @@ const stages = {
 Stages object is imported from reusable forlder to generate currently available stages. This information is not accessible by API call hence had to be hardcoded. 
 
 
+### <a name='search'>Search Request</a>
+
+#### <a name='search-demo'>Search Demo</a>
+
+![Submit Search](./screenshots/2.request-farm-search.gif "Submit Search")
 
 
-
+    - [Form](#form)
+    - [Search Results](#results)
+    - [Farm results](#farm-results)
+    - [Other Results](#other-results)
 
 
 
