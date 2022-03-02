@@ -67,6 +67,7 @@ The app had to:
 #### <a name='country-demo'>Get Countries Demo</a>
 
 [![Loading Countries](./screenshots/0.loading.PNG "Loading Countries")]
+[![Loaded Countries](./screenshots/1.selectMarkets.PNG "Loaded Countries")]
 
 #### <a name='country-code'>Get Countries Code Snippet</a>
 ```
