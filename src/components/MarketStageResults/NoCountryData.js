@@ -21,10 +21,9 @@ function NoCountryData({stage,market,availableMarkets}){
                         <div className="select is-primary">
                             <select onChange={(e)=>{
                                 const marketCode = e.target.value
-
                                 navigate(`/search/market=${marketCode}&stage=${stage}`, {state:{market:marketCode,stage:stage}});
-                                // setMarketCode(e.target.value)}
                                 }}>
+                                
                                 <option value="unselected" hidden>Select Market &#127757;</option>
                                 {availableMarkets
                                 .map(({countryName,countryCode},i) => {
@@ -35,7 +34,6 @@ function NoCountryData({stage,market,availableMarkets}){
                         <br/>
                         <br/>
                         <br/>
-                        {/* <p>Alternitevely, please select another market and a different stage below:</p> */}
                         <Form prompt={"Alternitevely, please select another market and a different stage below:"}/>
                     </div>
                 </div>

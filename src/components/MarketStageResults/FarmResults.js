@@ -7,7 +7,7 @@ import iso3SortedList from '../Reusable/iso3SortedList';
 
 
 
-function Farm({market}){
+function Farm({market,stage}){
     const [data,setData] = useState(undefined)
     const [availableMarkets,setAvailableMarkets] = useState(undefined)
     const [displayPrimaryTab,updateDisplayPrimaryTab] = useState(true)
@@ -23,7 +23,6 @@ function Farm({market}){
                 })
   
             const data = await response.json()
-            console.log(data)
             const hits =data.hits.hits
             const arr = hits.map(item=>{
                 return {
@@ -61,25 +60,7 @@ function Farm({market}){
         return <h1>Loading</h1>
     }
     if(data.length<1){
-        return (
-            <>
-                <h1>{market} does not have any {stage} data</h1>
-                <div className="select is-primary">
-                    <select onChange={(e)=>{
-                        const marketCode = e.target.value
-
-                        navigate(`/search/market=${marketCode}&stage=${stage}`, {state:{market:marketCode,stage:stage}});
-                        // setMarketCode(e.target.value)}
-                        }}>
-                        <option value="unselected" hidden>Select Market &#127757;</option>
-                        {availableMarkets
-                        .map(({countryName,countryCode},i) => {
-                            return <option value={countryCode} key={i}>{countryName}
-                            </option>})}
-                    </select>
-                </div>
-            </>
-        )
+        return <NoCountryData stage={stage} market={market} availableMarkets={availableMarkets} />
     }
 
     return <>

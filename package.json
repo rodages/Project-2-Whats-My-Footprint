@@ -27,7 +27,7 @@
     "sass": "^1.49.0"
   },
   "scripts": {
-    "start": "set REACT_APP_API_KEY=vC6geUlI2W34sDjtXAfcmCGdCGQTS4JrSS9BWgta&& react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

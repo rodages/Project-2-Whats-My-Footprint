@@ -13,7 +13,6 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
     const [availableMarkets,setAvailableMarkets] = useState(undefined)
     const [displayPrimaryTab,updateDisplayPrimaryTab] = useState(true)
     const navigate=useNavigate()
-    console.log(iso)
     
 
     useEffect(()=>{
@@ -41,7 +40,6 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
             arr.sort((current,next)=>current.productName.localeCompare(next.productName))
             setData(arr)
             
-            // console.log(iso3SortedList(data.aggregations.Markets.Markets.buckets))
         }
         getProductData()
     },[market])
@@ -50,28 +48,8 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
         return<h1>Loading Data</h1>
     }
     if(data.length<1){
-        console.log(availableMarkets[0])
-        console.log(stages)
-        return <NoCountryData stage={stage} market={market} availableMarkets={availableMarkets} />
-        return (
-            <>
-                <h1>{iso.whereAlpha3(market).country} does not have any products from "{stages[stage]}" stage</h1>
-                <div className="select is-primary">
-                    <select onChange={(e)=>{
-                        const marketCode = e.target.value
 
-                        navigate(`/search/market=${marketCode}&stage=${stage}`, {state:{market:marketCode,stage:stage}});
-                        // setMarketCode(e.target.value)}
-                        }}>
-                        <option value="unselected" hidden>Select Market &#127757;</option>
-                        {availableMarkets
-                        .map(({countryName,countryCode},i) => {
-                            return <option value={countryCode} key={i}>{countryName}
-                            </option>})}
-                    </select>
-                </div>
-            </>
-        )
+        return <NoCountryData stage={stage} market={market} availableMarkets={availableMarkets} />
     }
 
     return(

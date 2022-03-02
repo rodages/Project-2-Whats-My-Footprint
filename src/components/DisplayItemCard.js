@@ -5,7 +5,6 @@ import DisplayPie from './Charts/pieChart'
 function DisplayItemCard(){
     const navigate = useNavigate()
     const item = useLocation().state.item
-    console.log(item)
 
     return(
         <>

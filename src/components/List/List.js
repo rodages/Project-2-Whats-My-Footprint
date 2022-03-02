@@ -21,7 +21,6 @@ function List({data,description,filter=false,total=false}){
         }
     }
 
-    // console.log(iso2Code)
     return <>
         <div className='columns is-centered mt-4'>
                 <div className="is-8 column">
@@ -44,11 +43,9 @@ function List({data,description,filter=false,total=false}){
                                 <tr>
                                     <th><abbr title={`${description}`}>Order</abbr></th>
                                     <th>Product Name</th>
-                                    {/* <th>Flag</th> */}
                                     <th><abbr title="Total Climate Footprint">Total Climate Footprint</abbr></th>
                                     <th><abbr title='Add item to "Interested In" basket'>Interested In Basket</abbr></th>
                                     <th><abbr title='Add item to "Want To Avoid" basket'>Want To Avoid Basket</abbr></th>
-                                    {/* <th><abbr title='Remove Item From Display List'>Delete Item</abbr></th> */}
                                 </tr>
                             </thead>
                             <tfoot>
@@ -61,15 +58,6 @@ function List({data,description,filter=false,total=false}){
                                     </tr>:
                                     <tr></tr>
                                 }
-                                {/* <tr>
-                                    <th><abbr title={`${description}`}>Order</abbr></th>
-                                    <th>Product Name</th>
-                                    <th><abbr title="Total Climate Footprint">Footprint</abbr></th>
-                                    <th><abbr title='Add item to "Interested In" basket'>Interested In</abbr></th>
-                                    <th><abbr title='Add item to "Want To Avoid" basket'>Want To Avoid</abbr></th>
-                                </tr> */}
-                                    {/* <th>Flag</th> */}
-                                    {/* <th><abbr title='Remove Item From Display List'>Delete Item</abbr></th> */}
                             </tfoot>
                             {!data.length==0? 
                                 <tbody>
@@ -81,12 +69,6 @@ function List({data,description,filter=false,total=false}){
                                 })}
                             </tbody>:<tbody/>
                             }
-                            {/* <tbody>
-                                
-                                {data.map((item,i)=>{
-                                    return <ListItem key={i} item={item} order={i+1} iso2Code={iso2Code}/>
-                                })}
-                            </tbody> */}
                         </table>
                     </div>
                 </div>

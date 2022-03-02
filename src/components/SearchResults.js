@@ -13,22 +13,22 @@ function SearchResults(){
         //sets market and stage based on form passed
         market = useLocation().state.market
         stage = useLocation().state.stage
-    } else{
+    } 
+    if(!market){
         //takes params from URL link
         market = useParams().market
+    }
+    if(!stage){
         stage = useParams().stage
     }
     //checks what to render
     if(stage==="Farm"){
-        return <FarmResults market={market} />
+        return <FarmResults market={market} stage={stage} />
     } else if(stages.includes(stage)){
         return <DisCenterFactoryStoreUnspecifiedResults market={market} stage={stage} />
     } 
-    //need to do else if statement to check if market is not in stagedropdownbutton available countries or stages - render select market
-    
 
-    // console.log(market,stage,"params");
-    return <h1>Here we will have search results</h1>
+    return <h1>Something went wrong, please make another query</h1>
 }
 
 export default SearchResults
