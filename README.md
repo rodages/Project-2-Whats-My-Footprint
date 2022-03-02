@@ -10,8 +10,6 @@
   - [Get Countries](#countries)
     - [Get Countries Code Snippet](#country-code)
     - [Get Countries Demo](#country-demo)
-  - [Demo](#demo)
-  - [Code Snippets](#snippets)
   - [Styling](#styling)
 - [Difficulties](#difficulties)
   - [Known bugs](#bugs)
@@ -64,10 +62,44 @@ The app had to:
 
 ## <a name='development'>Development</a>
 
-### <a name='countries'>Get Countries</a>
+### <a name='countries'>Dropdowns</a>
+
+#### <a name='country-demo'>Get Countries Demo</a>
+
+[![Loading Countries](./screenshots/0.loading.PNG "Loading Countries")]
 
 #### <a name='country-code'>Get Countries Code Snippet</a>
-#### <a name='country-demo'>Get Countries Demo</a>
+```
+function iso3SortedList(arr){
+    const countries = arr.map(item=>{
+        const {country:countryName,alpha3:countryCode} = iso.whereAlpha3(item.key)
+        return {countryName,countryCode}
+    })
+    return countries.sort((current,next)=>current.countryName.localeCompare(next.countryName))
+}
+
+const [dropdownList,setDropdownList] = useState(undefined);
+    
+    useEffect(()=>{
+        async function getCountriesNames(){
+            const response = await fetch('https://api.carboncloud.com/v0/search', {
+                headers: {
+                Accept: 'application/json',
+                "X-API-KEY" : process.env.REACT_API_KEY,
+                },
+                })
+            const data = await response.json()
+            const buckets =data.aggregations.Markets.Markets.buckets
+            setDropdownList(iso3SortedList(buckets))
+        }
+        getCountriesNames()
+    }
+    ,[])
+```
+APi returns ISO3 code of available countries from initial search
+
+
+#### <a name='stages dropdown'>Stages Dropdown</a>
 
 
 
