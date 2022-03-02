@@ -18,6 +18,8 @@ We have selected [Carbon Cloud API](https://carboncloud.com/climate-footprint-ap
 - Add selected products to "Interested In" or "Would like to Avoid" baskets
 - Estimate the total impact of products in the baskets.
 
+The app can be viewed [here](https://whatsmyfootprint.netlify.app/).
+
 ### <a name='brief'>Brief</a>
 
 The app had to:
@@ -46,7 +48,7 @@ The app had to:
 
 # Deployment
 
-The app can be viewed here: [Whats My Footprint?](https://whatsmyfootprint.netlify.app/)
+
 
 
 
