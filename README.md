@@ -6,6 +6,15 @@
   - [Brief](#brief)
   - [Technologies Used](#technologies)
   - [Installation](#installation)
+- [Development](#development)
+  - [Demo](#demo)
+  - [Code Snippets](#snippets)
+  - [Styling](#styling)
+- [Difficulties](#difficulties)
+  - [Known bugs](#bugs)
+  - [Challenges](#challenges)
+- [Future Improvements](#improvements)
+- [Key Learnings](#learnings)
 
 ## <a name='overview'>Overview</a>
 
@@ -33,10 +42,15 @@ The app had to:
 ### <a name='technologies'>Technologies Used</a>
 
 * JavaScript
-* React Router/Dom
+* React
+* React-router-dom
 * Bulma
 * VSCode
 * Git/GitHub
+* Insomnia/Postman
+* @nivo/bar
+* @nivo/pie
+* iso-3166-1
 
 ### <a name='installation'>Installation</a>
 
@@ -45,6 +59,8 @@ The app had to:
 * Request an API key or use the public one.
 * Install all frontend packages (from package.json) by running `npm install`
 * Start server with `npm run start`
+
+
 
 # Deployment
 
