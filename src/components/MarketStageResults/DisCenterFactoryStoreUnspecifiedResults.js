@@ -24,20 +24,23 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
                 },
                 })
             const data = await response.json();
-            const arr = data.hits.hits.map(item=>{
+            const arr = data.hits.map(item=>{
+                const nested = item.contents[1]
                 return {
-                    "id":item._id,
-                    "productName":item._source.productName,
-                    "market":item._source.market,
-                    "totalFootprint":item._source.totalFootprint,
-                    "footprintBreakdown":item._source.footprintBreakdown,
-                    "imageUrl":item._source.imageUrl,
-                    "productInfo":item._source.reportUrl
+
+                    id:item.contents[0],
+                    productName:nested.productName,
+                    market:nested.market,
+                    totalFootprint:nested.totalFootprint,
+                    imageUrl:nested.imageUrl,
+                    productInfo:nested.reportUrl,
+                    footprintBreakdown:nested.footprintBreakdown
                 }
-            
             })
-            setAvailableMarkets(iso3SortedList(data.aggregations.Markets.Markets.buckets))
+
+            setAvailableMarkets(iso3SortedList(Object.keys(data.aggregations.markets)))
             arr.sort((current,next)=>current.productName.localeCompare(next.productName))
+            console.log(arr)
             setData(arr)
             
         }

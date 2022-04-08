@@ -14,10 +14,11 @@ function CountryDropdown({setMarketCode}){
                 },
                 })
             const data = await response.json()
-            const buckets =data.aggregations.Markets.Markets.buckets
+            const buckets =Object.keys(data.aggregations.markets)
             setDropdownList(iso3SortedList(buckets))
         }
         getCountriesNames()
+
     }
     ,[])
     if(!dropdownList){
@@ -29,6 +30,7 @@ function CountryDropdown({setMarketCode}){
         </div>
         )
     }
+    console.log(dropdownList)
     return (<>
         <div className="select is-primary">
             <select onChange={(e)=>{setMarketCode(e.target.value)}}>
