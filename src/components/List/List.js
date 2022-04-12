@@ -7,7 +7,6 @@ import filterSearchResults from '../Reusable/filterFunction'
 
 function List({data,description,filter=false,total=false}){
     const [searchTerm,setSearchTerm] = useState("")
-    const iso2Code = iso.whereAlpha3(data[0].market).alpha2
     let totalBasketFootprint = undefined
     
     if(total){
@@ -65,7 +64,7 @@ function List({data,description,filter=false,total=false}){
                                 {data
                                 .filter(item=>filterSearchResults(item.productName,searchTerm))
                                 .map((item,i)=>{
-                                    return <ListItem key={i} item={item} order={i+1} iso2Code={iso2Code}/>
+                                    return <ListItem key={i} item={item} order={i+1}/>
                                 })}
                             </tbody>:<tbody/>
                             }

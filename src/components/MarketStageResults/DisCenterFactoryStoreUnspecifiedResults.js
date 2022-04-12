@@ -20,7 +20,7 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
             const response = await fetch(`https://api.carboncloud.com/v0/search?q=&market=${market}&gate=${stage}`, {
                 headers: {
                 Accept: 'application/json',
-                "X-API-KEY" : "vC6geUlI2W34sDjtXAfcmCGdCGQTS4JrSS9BWgta",
+                "X-API-KEY" : `${process.env.REACT_APP_API_KEY}`,
                 },
                 })
             const data = await response.json();
@@ -40,7 +40,6 @@ function DisCenterFactoryStoreUnspecified({market,stage}){
 
             setAvailableMarkets(iso3SortedList(Object.keys(data.aggregations.markets)))
             arr.sort((current,next)=>current.productName.localeCompare(next.productName))
-            console.log(arr)
             setData(arr)
             
         }

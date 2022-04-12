@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 function DisplayTabs({displayPrimaryTab,updateDisplayPrimaryTab}){
-    const tabOptions = ["Full Products List","Most/Least Emmisive Products List"]
+    const tabOptions = ["Full Products List","Most/Least Emissive Products List"]
     const [selectedTab, setSelectedTab] = useState(tabOptions[0])
     return(
         <div className="tabs is-centered">
