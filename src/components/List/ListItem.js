@@ -3,7 +3,7 @@ import { BasketContext } from '../../App'
 import {useState,useContext,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ListItem({item,order, iso2Code}){
+function ListItem({item,order}){
     const[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr] = useContext(BasketContext)
     const navigate = useNavigate()
 
@@ -25,7 +25,6 @@ function ListItem({item,order, iso2Code}){
         : <button className="button is-small is-warning is-light" onClick={()=>{handleRemoving(arr,setArr)}}>Remove Item</button>
         
     }
-
     return <tr>
         <th >{order}</th>
         <td className="button is-normall is-link is-light"
