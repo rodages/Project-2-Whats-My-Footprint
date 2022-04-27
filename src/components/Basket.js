@@ -3,7 +3,8 @@ import List from './List/List';
 import {useContext, useState} from 'react';
 import {BasketContext} from '../App'
 import EmptyTable from './List/EmptyTable';
-import {Link,useNavigate} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom';
+import Form from './Form/Form'
 
 function Basket(){
     const[interestedInArr,setInterestedInArr,wantToAvoidArr,setWantToAvoidArr] = useContext(BasketContext)
@@ -16,7 +17,16 @@ function Basket(){
         return <div className=' mt-4 columns is-centered'>
             <div className='is-centered'>
             <h1 className='title is-centered'>Currently you do not have any products selected</h1>
-            <Link className='is-centered' to={`/`}>Click here to go to Main Page</Link>
+            <div className="card">
+                <header className="card-header">
+                    <p className="card-header-title has-background-primary-dark has-text-primary-light">
+                    You can add products to your basket by doing the following search
+                    </p>
+                </header>
+                <div className="card-content has-background-primary-light">
+                    <Form prompt={"Check out food items by markets and food production stages:"}/>
+                </div>
+            </div>
 
             </div>
         </div>
