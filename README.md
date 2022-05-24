@@ -12,21 +12,21 @@
     - [Get Countries Demo](#country-demo)
     - [Get Countries Code Snippet](#country-code)
     - [Stages Dropdown](#stages-dropdown)
-- [Search Request](#search)
+  - [Search Request](#search)
     - [Search Demo](#search-demo)
     - [Form](#form)
     - [Search Results](#results)
     - [Farm Search Results](#farm-results)
     - [Other Stages Search Results](#other-results)
-- [Display Data](#data-display)
+  - [Display Data](#data-display)
     - [Tabs](#tabs)
     - [List](#list)
     - [TopLists](#top-lists)
-- [Basket](#basket)
-- [Single Item](#single-item)
+  - [Basket](#basket)
+  - [Single Item](#single-item)
     - [Chart](#chart)
     - [Pie](#pie)
-  - [Styling](#styling)
+- [Styling](#styling)
 - [Difficulties and Wins ](#difficulties-wins)
   - [Known bugs](#bugs)
   - [Challenges](#challenges)
@@ -35,7 +35,7 @@
 
 ## <a name='overview'>Overview</a>
 
-The second project for General Assembley (GA) Software Engineering Immersive(SEI-Flex) program was to build a React application that consumes a public API.
+The second project for General Assembly (GA) Software Engineering Immersive(SEI-Flex) program was to build a React application that consumes a public API.
 
 We have selected [Carbon Cloud API](https://carboncloud.com/climate-footprint-api/) to get products Carbon dioxide equivalent (CO2e). Our application aims to allow users to:
 - Display products from various Markets based on the selected production Stage.
@@ -98,7 +98,7 @@ API returns a nested ISO3 code of available countries from the initial search wh
             "AGO": 53,
             "ALB": 85...}}`
 
- To use it for dropdown we have used `iso-3166-1` library to get full names of the countries. We have also made a sorting function `iso3SortedList(arr)` to clean up the code, sort it alphabetically and make it more reusable throughout the project.
+ To use it for dropdown we have used `iso-3166-1` library to get the full names of the countries. We have also made a sorting function `iso3SortedList(arr)` to clean up the code, sort it alphabetically and make it more reusable throughout the project.
 
 ```
 function iso3SortedList(arr){
@@ -158,7 +158,7 @@ function displayError(){
 }
 
 ```
-`displayError` function returns a paragraph or empty string. Apart from displaying missing information for submission it also used as validator within `handleSubmitForm`.
+`displayError` function returns a paragraph or empty string. Apart from displaying missing information for submission it is also used as a validator within `handleSubmitForm`.
 
 ```
 function handleSubmitForm(e){
@@ -173,8 +173,8 @@ function handleSubmitForm(e){
 <button onClick={(e)=>{handleSubmitForm(e)}} className=" button is-primary is-small">Check CO2</button>
 ```
 
-`handleSubmitForm` checks if `displayError` returns truthy value indicating that there are parameters missing to return early.
-if falsy value is returned - form will be "submitted" and navigation to path with <SearchResults /> will triggered.
+`handleSubmitForm` checks if `displayError` returns a truthy value indicating that there are missing parameters and returns early.
+if a falsy value is returned - the form will be "submitted" and navigation to a path with <SearchResults /> will get triggered.
 
 
 #### <a name='results'>Search Results</a>
@@ -200,7 +200,7 @@ if(!market){ market = useParams().market}
 if(!stage){ stage = useParams().stage}
 ```
 
-if no data has been provided via form, take `:market` and `:stage` parameters from url.
+if no data has been provided via form, take `:market` and `:stage` parameters from URL.
 
 
 ```
@@ -209,8 +209,8 @@ const stages = ["DistributionCenter","Factory","StoreShelf","NoSpecific"]
     } else if(stages.includes(stage)){ return <DisCenterFactoryStoreUnspecifiedResults market={market} stage={stage} />
     }
 ```
-Renders Farm or Other stages depending on selected stage.
-Both components will make requests to `https://api.carboncloud.com/v0/search?q=&market=${market}&gate=${stage}`. However returned data will differ and will be listed in next two snippets.
+Renders Farm or Other stages depending on the selected stage.
+Both components will make requests to `https://api.carboncloud.com/v0/search?q=&market=${market}&gate=${stage}`. However, returned data will differ and will be listed in the next two sections.
 
 #### <a name='farm-results'>Farm Search Results</a>
 ```
@@ -255,13 +255,13 @@ const arr = data.hits.hits.map(item=>{
 ```
 
 ### <a name='data-display'>Display Data</a>
-Once data is received from API it is being displayed as a list in a table. with the following parameters: `product name`, `climate footprint` and two options: adding item either to `interested in` or `want to avoid` baskets.
+Once data is received from API it is displayed as a list in a table. with the following parameters: `product name`, `climate footprint` and two options: adding items to either `interested in` or `want to avoid` baskets.
 
 #### <a name='tabs'>Tabs</a>
 ![Tabs Gif](./screenshots/tabs.gif "Tabs Gif")
-DisplayTabs component uses ternary operator to check if primary tab should be displayed, or should most/least emissive products be shown side by side.
+DisplayTabs component uses ternary operator to check if the primary tab should be displayed, or should most/least emissive products be shown side by side.
 #### <a name='list'>List</a>
-`List` component renders a table visualizing data and enables product allocation to the baskets. Products are being stored at App component and are passed via useContext hook to all list components.
+`List` component renders a table visualizing data and enables product allocation to the baskets. Products are being stored in the App component and are passed via useContext hook to all list components.
 ```
   export const BasketContext = createContext()
   const [interestedInArr,setInterestedInArr] = useState([])
@@ -287,37 +287,37 @@ DisplayTabs component uses ternary operator to check if primary tab should be di
 ### <a name='basket'>Basket</a>
 If empty - renders search prompt. 
 
-Once either "Interested In" or "Want to Avoid" basket has at least one product - renders a table with all items in that basket and counts total footprint of the whole basket.
+Once either the "Interested In" or "Want to Avoid" basket has at least one product - a table is rendered with all of the items in that basket and the total footprint of the whole basket is counted.
 
-Basket state is passed via useContext hook from App component to avoid prop-drilling.
+The Basket state is passed via the useContext hook from the App component to avoid prop-drilling.
 
 ### <a name='single-item'>Single Item</a>
-Depending if item belongs to `Farm` stage or `any other stage` - received data is different. 
+Depending if the item belongs to the `Farm` stage or `any other stage` - the received data is different hence different component needs to be rendered. 
 
 #### <a name='chart'>Chart</a>
 ![Farm Item](./screenshots/farmItem.PNG "Farm Item")
 We have decided to visualize `Farm` Items as a bar component as it has more detailed breakdown of different stages of production.
-Also every country has at least one Farm item listed.
+Also, every country has at least one Farm item listed.
 
 #### <a name='pie'>Pie</a>
 ![Other Stages Item](./screenshots/otherItem.PNG "Other Stages Item")
 products from `Other Stages` of production are listed in a pie component, as they only got `total climate footprint` and breakdown of how different stages of production contribute to the footprint.
 ### <a name='styling'>Styling</a>
-Project has been styled with CSS library [Bulma](https://bulma.io/). It is very lightweight and easily customizable - it allowed us to make a responsive website focused on functionality in a very short timespan.
+The project has been styled with CSS library [Bulma](https://bulma.io/). It is very lightweight and easily customizable - it allowed us to make a responsive website focused on functionality in a very short time span.
 
-### <a name='difficuties-wins'>Difficulties and Wins</a>
+## <a name='difficulties-wins'>Difficulties and Wins</a>
 
-#### <a name='bugs'>Known Bugs</a>
-<s>Basket total footprint accumulator count</s>
+### <a name='bugs'>Known Bugs</a>
+- <s>Basket total footprint accumulator count</s>
 
-<s>Back button returning to main search area, rather than previously generated query</s>
+- <s>Back button returning to the main search area, rather than previously generated query</s>
 
-<s>Being able to add items to both baskets</s>
+- <s>Being able to add items to both baskets</s>
 
-If Country does not have any products listed in stage selection and user wants to select another stage without repeatedly selecting same country - he will get same notification on data unavailable to initial stage request, rather than tailored to the new stage selection.
+-If the country does not have any products listed in stage selection and a user wants to select another stage without repeatedly selecting the same country - he will get the same notification on data unavailable to the initial stage request, rather than tailored to the new stage selection.
 
 Found a bug? Please report it to @zanasmakarov@gmail.com
-#### <a name='challenges'>Challenges</a>
+### <a name='challenges'>Challenges</a>
 - Filtering search list. Some markets at Farm stage can return lots of results. to filter them - search bar was introduced.<br>
 ```
 function filterSearchResults(arrItemArg,searchTermArg){
@@ -329,11 +329,11 @@ function filterSearchResults(arrItemArg,searchTermArg){
 ```
 
 - Only selected countries have products from certain stages.<br>
-`At Distribution Center` only has data for Belgium, Netherlands, Sweden, United Kingdom.<br>
-`At Factory` only has data for Austria, Germany, Italy, Switzerland.<br>
+`At Distribution Center` only has data for Belgium, Netherlands, Sweden and United Kingdom.<br>
+`At Factory` only has data for Austria, Germany, Italy and Switzerland.<br>
 `At Store` only has data for 20 countries - all from West-oriented countries - EU/US/Australia/NZ.
 -`Unspecified` only has data for 19 countries - mostly from European countries, but has slightly bit more Asian countries than `At Store`<br><br>
-To fix the issue of "no data fetched" we have saved response data and suggested making a new query, or select only countries that have available stage option.<br>
+To fix the issue of "no data fetched" we have saved response data and suggested making a new query, or selecting only countries that have an available stage options.<br>
 ```
 setAvailableMarkets(iso3SortedList(Object.keys(data.aggregations.markets)))
 ...
@@ -342,7 +342,7 @@ setAvailableMarkets(iso3SortedList(Object.keys(data.aggregations.markets)))
         return <NoCountryData stage={stage} market={market} availableMarkets={availableMarkets} />
     }
 ```
-- Allowing item to be added only to one of the baskets, but not both.
+- Allowing items to be added only to one of the baskets, but not both.
 ```
 function makeAddRemoveButtons(arr,setArr,styling,anotherBasketArr){
         return (anotherBasketArr.some(element=>element.id==item.id)) ?
@@ -356,21 +356,21 @@ function makeAddRemoveButtons(arr,setArr,styling,anotherBasketArr){
 
 
 
-### <a name='improvements'>Future Improvements</a>
+## <a name='improvements'>Future Improvements</a>
 - Improve visualization on bar component @`Farm Item`.
 - Save current basket items to localStorage if application does not have users, or database if one exists.
 
-### <a name='learnings'>Key Learnings</a>
+## <a name='learnings'>Key Learnings</a>
 
-- This was my first time working with production ready API rather than educational APIs. Project was more complex in terms of setup and reading nested data.
+- This was my first time working with production-ready API rather than educational APIs. The project was more complex in terms of setup and reading nested data.
 
-- API has already had structural changes once, which made us refactor the project slightly - it thought us of importance of code maintenance throughout the project lifespan.
+- API has already had structural changes once, which made us refactor the project slightly - it thought us of the importance of code maintenance throughout the project lifespan.
 
-- It was a very good experience to work on a project in a couple as we practiced task delegation and working on shared ideas and taking them further.
+- It was a very good experience to work on a project as a couple as we practised task delegation and working on shared ideas and taking them further.
 
 - Learned to work with data visualization library and new CSS framework never used before.
 
-- Was really proud of using useContext hook, which I always imagined to be very difficult to implement - it made code more readable and avoided prop-drilling.
+- Was really proud of using useContext hook, which I always imagined being very difficult to implement - it made code more readable and avoided prop-drilling.
 
 - It took a while for us to get API key, which was worrying as we wanted to deploy our application rather than making it local only.
 
