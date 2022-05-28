@@ -2,43 +2,40 @@
 
 ## TABLE OF CONTENTS
 
-- [! GA London React Project-2-What's My Footprint](#-ga-london-react-project-2-whats-my-footprint)
-  - [TABLE OF CONTENTS](#table-of-contents)
-  - [<a name='overview'>Overview</a>](#overview)
-    - [<a name='brief'>Brief</a>](#brief)
-    - [<a name='technologies'>Technologies Used</a>](#technologies-used)
-    - [<a name='installation'>Installation</a>](#installation)
-    - [<a name='demo'>Demo</a>](#demo)
-  - [<a name='development'>Development</a>](#development)
-    - [<a name='planning-approach'>Planning/Approach</a>](#planningapproach)
-      - [<a name='planning'>Planning</a>](#planning)
-      - [<a name='api-search-results'>Example Results from API call</a>](#example-results-from-api-call)
-      - [<a name='wireframe'>WireFraming</a>](#wireframing)
-      - [<a name='approach'>Approach</a>](#approach)
-    - [<a name='dropdowns'>Dropdowns</a>](#dropdowns)
-      - [<a name='country-demo'>Get Countries Demo</a>](#get-countries-demo)
-      - [<a name='country-code'>Get Countries Code Snippet</a>](#get-countries-code-snippet)
-      - [<a name='stages-dropdown'>Stages Dropdown</a>](#stages-dropdown)
-    - [<a name='search'>Search Request</a>](#search-request)
-      - [<a name='search-demo'>Search Demo</a>](#search-demo)
-      - [<a name='form'>Form</a>](#form)
-      - [<a name='results'>Search Results</a>](#search-results)
-      - [<a name='farm-results'>Farm Search Results</a>](#farm-search-results)
-      - [<a name='other-results'>Other Stages Search Results</a>](#other-stages-search-results)
-    - [<a name='data-display'>Display Data</a>](#display-data)
-      - [<a name='tabs'>Tabs</a>](#tabs)
-      - [<a name='list'>List</a>](#list)
-      - [<a name='top-lists'>TopLists</a>](#toplists)
-    - [<a name='basket'>Basket</a>](#basket)
-    - [<a name='single-item'>Single Item</a>](#single-item)
-      - [<a name='chart'>Chart</a>](#chart)
-      - [<a name='pie'>Pie</a>](#pie)
-    - [<a name='styling'>Styling</a>](#styling)
-  - [<a name='difficulties-wins'>Difficulties and Wins</a>](#difficulties-and-wins)
-    - [<a name='bugs'>Known Bugs</a>](#known-bugs)
-    - [<a name='challenges'>Challenges</a>](#challenges)
-  - [<a name='improvements'>Future Improvements</a>](#future-improvements)
-  - [<a name='learnings'>Key Learnings</a>](#key-learnings)
+- [Overview](#overview)
+  - [Brief](#brief)
+  - [Technologies Used](#technologies)
+  - [Installation](#installation)
+  - [Demo](#demo)
+- [Development](#development)
+ - [Planning/Approach](#planning-approach)
+    - [Planning](#planning)
+    - [WireFraming](#wireframe)
+    - [Approach](#approach)
+  - [Dropdowns](#dropdowns)
+    - [Get Countries Demo](#country-demo)
+    - [Get Countries Code Snippet](#country-code)
+    - [Stages Dropdown](#stages-dropdown)
+  - [Search Request](#search)
+    - [Search Demo](#search-demo)
+    - [Form](#form)
+    - [Search Results](#results)
+    - [Farm Search Results](#farm-results)
+    - [Other Stages Search Results](#other-results)
+  - [Display Data](#data-display)
+    - [Tabs](#tabs)
+    - [List](#list)
+    - [TopLists](#top-lists)
+  - [Basket](#basket)
+  - [Single Item](#single-item)
+    - [Chart](#chart)
+    - [Pie](#pie)
+- [Styling](#styling)
+- [Difficulties and Wins ](#difficulties-wins)
+  - [Known bugs](#bugs)
+  - [Challenges](#challenges)
+- [Future Improvements](#improvements)
+- [Key Learnings](#learnings)
 
 ## <a name='overview'>Overview</a>
 
@@ -103,6 +100,7 @@ The API had good documentation, but it took some time to get the private key. Th
 API Returns different data depending if request was to Farm stage or any other stage. Below examples of each API call.
 ![FarmStageResults](./screenshots/SearchResultsGBRFarm.PNG "Farm Stage Results")
 Example of Farm data.
+
 
 ![OtherStageResults](./screenshots/SearchResultsDEUFactory.PNG "Other Stage Results")
 Example of data from all other stages.
@@ -403,10 +401,3 @@ function makeAddRemoveButtons(arr,setArr,styling,anotherBasketArr){
 - Was really proud of using useContext hook, which I always imagined being very difficult to implement - it made code more readable and avoided prop-drilling.
 
 - It took a while for us to get API key, which was worrying as we wanted to deploy our application rather than making it local only.
-
-
-
-
-
-
-
