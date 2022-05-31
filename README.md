@@ -35,9 +35,10 @@
 
 ## <a name='overview'>Overview</a>
 
-The second project for General Assembly (GA) Software Engineering Immersive(SEI-Flex) program was to build a React application that consumes a public API.
+The second project for General Assembly's (GA) Software Engineering Immersive (SEI-Flex) program was to build a React application that consumes a public API.
 
 We have selected [Carbon Cloud API](https://carboncloud.com/climate-footprint-api/) to get products Carbon dioxide equivalent (CO2e). Our application aims to allow users to:
+
 - Display products from various Markets based on the selected production Stage.
 - Search for products by name from the rendered list.
 - Show Most and Least emissive products from selected categories.
@@ -82,6 +83,33 @@ The app had to:
 **The app can be viewed [here](https://whatsmyfootprint.netlify.app/).**
 
 ## <a name='development'>Development</a>
+
+### <a name='planning-approach'>Planning/Approach</a>
+
+#### <a name='planning'>Planning</a>
+Emile has proposed the idea for the project. We have quickly agreed that the project has lots of potential and could be beneficial for users’ general knowledge, rather than just making a practice project showcasing programming skills.
+ 
+ We have spent the first day testing responses by making example API calls, planning, wireframing and applying for a private API key to be able to deploy the application online.
+The API had good documentation, but it took some time to get the private key. This was a concern for the first few days, as we wanted to deploy our project online for everyone to use and not have it as a local tool only.
+
+#### <a name='api-search-results'>Example Results from API call</a>
+
+API Returns different data depending if request was to Farm stage or any other stage. Below examples of each API call.
+
+![FarmStageResults](./screenshots/SearchResultsGBRFarm.PNG "Farm Stage Results")
+
+Example of Farm data.
+
+
+![OtherStageResults](./screenshots/SearchResultsDEUFactory.PNG "Other Stage Results")
+
+Example of data from all other stages.
+
+#### <a name='wireframe'>WireFraming</a>
+![Project Wireframe](./screenshots/projectOutline.PNG "Project wireframe")
+
+#### <a name='approach'>Approach</a>
+We used Slack and Zoom to communicate the updates on project and what each person is currently working on.
 
 ### <a name='dropdowns'>Dropdowns</a>
 
@@ -131,7 +159,8 @@ const stages = {
     })}
 </select>
 ```
-Stages object is imported from reusable folder to generate currently available stages. This information is not accessible by API call hence had to be hard-coded. 
+
+There are no endpoints for available stages for API calls. Hence we had to hard-code currently supported options and reuse them throughout the project.
 
 
 ### <a name='search'>Search Request</a>
@@ -255,11 +284,11 @@ const arr = data.hits.hits.map(item=>{
 ```
 
 ### <a name='data-display'>Display Data</a>
-Once data is received from API it is displayed as a list in a table. with the following parameters: `product name`, `climate footprint` and two options: adding items to either `interested in` or `want to avoid` baskets.
+Once the data is received from the API it is displayed as a list in a table with the following parameters: `product name`, `climate footprint` and two options: adding items to either `interested in` or `want to avoid` baskets.
 
 #### <a name='tabs'>Tabs</a>
 ![Tabs Gif](./screenshots/tabs.gif "Tabs Gif")
-DisplayTabs component uses ternary operator to check if the primary tab should be displayed, or should most/least emissive products be shown side by side.
+DisplayTabs component checks which Tab should be shown -primary tab with an alphabetical list and a search bar or should "most/least emissive products" be shown side by side.
 #### <a name='list'>List</a>
 `List` component renders a table visualizing data and enables product allocation to the baskets. Products are being stored in the App component and are passed via useContext hook to all list components.
 ```
@@ -292,7 +321,7 @@ Once either the "Interested In" or "Want to Avoid" basket has at least one produ
 The Basket state is passed via the useContext hook from the App component to avoid prop-drilling.
 
 ### <a name='single-item'>Single Item</a>
-Depending if the item belongs to the `Farm` stage or `any other stage` - the received data is different hence different component needs to be rendered. 
+Depending if the item belongs to the `Farm` stage or `any other stage` - the received data is different hence different component need to be rendered. 
 
 #### <a name='chart'>Chart</a>
 ![Farm Item](./screenshots/farmItem.PNG "Farm Item")
@@ -317,8 +346,9 @@ The project has been styled with CSS library [Bulma](https://bulma.io/). It is v
 -If the country does not have any products listed in stage selection and a user wants to select another stage without repeatedly selecting the same country - he will get the same notification on data unavailable to the initial stage request, rather than tailored to the new stage selection.
 
 Found a bug? Please report it to @zanasmakarov@gmail.com
-### <a name='challenges'>Challenges</a>
-- Filtering search list. Some markets at Farm stage can return lots of results. to filter them - search bar was introduced.<br>
+
+### <a name='challenges'>Challenges and Wins</a>
+- Filtering search list. Some markets at Farm stage can return lots of results. To filter them - search bar was introduced.<br>
 ```
 function filterSearchResults(arrItemArg,searchTermArg){
     const searchTerm = searchTermArg.trim().toLowerCase()
@@ -364,9 +394,9 @@ function makeAddRemoveButtons(arr,setArr,styling,anotherBasketArr){
 
 - This was my first time working with production-ready API rather than educational APIs. The project was more complex in terms of setup and reading nested data.
 
-- API has already had structural changes once, which made us refactor the project slightly - it thought us of the importance of code maintenance throughout the project lifespan.
+- The API has already had structural changes once, which made us refactor the project slightly - it taught us of the importance of code maintenance throughout the project lifespan.
 
-- It was a very good experience to work on a project as a couple as we practised task delegation and working on shared ideas and taking them further.
+- It was a very good experience to work on a project in a pair as we practised task delegation, working on shared ideas and taking them further.
 
 - Learned to work with data visualization library and new CSS framework never used before.
 
