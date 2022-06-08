@@ -94,7 +94,7 @@ The API had good documentation, but it took some time to get the private key. Th
 
 #### <a name='api-search-results'>Example Results from API call</a>
 
-API Returns different data depending if request was to Farm stage or any other stage. Below examples of each API call.
+API Returns different data depending if the request was to Farm stage or any other stage. Below examples of each API call.
 
 ![FarmStageResults](./screenshots/SearchResultsGBRFarm.PNG "Farm Stage Results")
 
@@ -109,7 +109,7 @@ Example of data from all other stages.
 ![Project Wireframe](./screenshots/projectOutline.PNG "Project wireframe")
 
 #### <a name='approach'>Approach</a>
-We used Slack and Zoom to communicate the updates on project and what each person is currently working on.
+We used Slack and Zoom to communicate the updates on the project and what each person is currently working on.
 
 ### <a name='dropdowns'>Dropdowns</a>
 
@@ -229,7 +229,7 @@ if(!market){ market = useParams().market}
 if(!stage){ stage = useParams().stage}
 ```
 
-if no data has been provided via form, take `:market` and `:stage` parameters from URL.
+if no data has been provided via form, take `:market` and `:stage` parameters from the URL.
 
 
 ```
@@ -290,7 +290,7 @@ Once the data is received from the API it is displayed as a list in a table with
 ![Tabs Gif](./screenshots/tabs.gif "Tabs Gif")
 DisplayTabs component checks which Tab should be shown -primary tab with an alphabetical list and a search bar or should "most/least emissive products" be shown side by side.
 #### <a name='list'>List</a>
-`List` component renders a table visualizing data and enables product allocation to the baskets. Products are being stored in the App component and are passed via useContext hook to all list components.
+`List` component renders a table visualising data and enables product allocation to the baskets. Products are being stored in the App component and are passed via useContext hook to all list components.
 ```
   export const BasketContext = createContext()
   const [interestedInArr,setInterestedInArr] = useState([])
@@ -305,7 +305,7 @@ DisplayTabs component checks which Tab should be shown -primary tab with an alph
 
 
 #### <a name='top-lists'>TopLists</a>
-`TopPlists` component renders two `List` components side by side and passes up to 10 most or least emissive products from selected category.
+`TopPlists` component renders two `List` components side by side and passes up to 10 most or least emissive products from the selected category.
 ```
 <div className="columns is-centered">
         <List data={[...data].sort((a,b)=>b.totalFootprint-a.totalFootprint).slice(0,10)} description={"Most Emissive Products"}/>
@@ -325,7 +325,7 @@ Depending if the item belongs to the `Farm` stage or `any other stage` - the rec
 
 #### <a name='chart'>Chart</a>
 ![Farm Item](./screenshots/farmItem.PNG "Farm Item")
-We have decided to visualize `Farm` Items as a bar component as it has more detailed breakdown of different stages of production.
+We have decided to visualise `Farm` Items as a bar component as it has a more detailed breakdown of different stages of production.
 Also, every country has at least one Farm item listed.
 
 #### <a name='pie'>Pie</a>
@@ -387,8 +387,8 @@ function makeAddRemoveButtons(arr,setArr,styling,anotherBasketArr){
 
 
 ## <a name='improvements'>Future Improvements</a>
-- Improve visualization on bar component @`Farm Item`.
-- Save current basket items to localStorage if application does not have users, or database if one exists.
+- Improve visualisation on bar component @`Farm Item`.
+- Save current basket items to localStorage if the application does not have users, or database if one exists.
 
 ## <a name='learnings'>Key Learnings</a>
 
@@ -398,11 +398,11 @@ function makeAddRemoveButtons(arr,setArr,styling,anotherBasketArr){
 
 - It was a very good experience to work on a project in a pair as we practised task delegation, working on shared ideas and taking them further.
 
-- Learned to work with data visualization library and new CSS framework never used before.
+- Learned to work with the data visualisation library and new CSS framework never used before.
 
 - Was really proud of using useContext hook, which I always imagined being very difficult to implement - it made code more readable and avoided prop-drilling.
 
-- It took a while for us to get API key, which was worrying as we wanted to deploy our application rather than making it local only.
+- It took a while for us to get the API key, which was worrying as we wanted to deploy our application rather than making it local only.
 
 
 
