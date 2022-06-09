@@ -73,7 +73,7 @@ The app had to:
 ### <a name='installation'>Installation</a>
 
 * Clone the repo
-* [Request personal Carbon Cloud Api key or use public key for private use.](https://developers.carboncloud.com/)
+* [Request personal Carbon Cloud API key or use public key for private use.](https://developers.carboncloud.com/)
 * Install all frontend packages (from package.json) by running `npm install`
 * create `.env` file inside the project directory and list the following line to use demo API key from carboncloud:
 `REACT_APP_API_KEY = 95NOSm7wU24EJ3zqf7IN99yFRQkWyhmcThAIwew3` to use project locally, or include API key received from `pi@carboncloud.com`.
@@ -87,9 +87,9 @@ The app had to:
 ### <a name='planning-approach'>Planning/Approach</a>
 
 #### <a name='planning'>Planning</a>
-Emile has proposed the idea for the project. We have quickly agreed that the project has lots of potential and could be beneficial for users’ general knowledge, rather than just making a practice project showcasing programming skills.
+Emile proposed the idea for the project. We quickly agreed that the project had lots of potential and could be beneficial for users’ general knowledge, rather than just making a practice project showcasing programming skills.
  
- We have spent the first day testing responses by making example API calls, planning, wireframing and applying for a private API key to be able to deploy the application online.
+We spent the first day testing responses by making example API calls, planning, wireframing and applying for a private API key to be able to deploy the application online.
 The API had good documentation, but it took some time to get the private key. This was a concern for the first few days, as we wanted to deploy our project online for everyone to use and not have it as a local tool only.
 
 #### <a name='api-search-results'>Example Results from API call</a>
@@ -110,6 +110,7 @@ Example of data from all other stages.
 
 #### <a name='approach'>Approach</a>
 We used Slack and Zoom to communicate the updates on the project and what each person is currently working on.
+Emilie has focused on styling of the components, creating outlay, working with data visualisation library. We have worked together on data that is being returned from API calls. Below I explain the steps I took to implement functionality of the components I worked on.
 
 ### <a name='dropdowns'>Dropdowns</a>
 
@@ -305,7 +306,7 @@ DisplayTabs component checks which Tab should be shown -primary tab with an alph
 
 
 #### <a name='top-lists'>TopLists</a>
-`TopPlists` component renders two `List` components side by side and passes up to 10 most or least emissive products from the selected category.
+`TopPlists` component renders two `List` components side by side and passes up to 10 most or least emissive products from the  selected category.
 ```
 <div className="columns is-centered">
         <List data={[...data].sort((a,b)=>b.totalFootprint-a.totalFootprint).slice(0,10)} description={"Most Emissive Products"}/>
@@ -403,10 +404,3 @@ function makeAddRemoveButtons(arr,setArr,styling,anotherBasketArr){
 - Was really proud of using useContext hook, which I always imagined being very difficult to implement - it made code more readable and avoided prop-drilling.
 
 - It took a while for us to get the API key, which was worrying as we wanted to deploy our application rather than making it local only.
-
-
-
-
-
-
-
